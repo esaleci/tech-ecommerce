@@ -89,7 +89,7 @@ export default function FeatureOne() {
               <div className="flex items-center justify-between pb-5">
                 <div className="flex items-center gap-3">
                   <Image
-                    src="/calendar.svg"
+                    src="/calendar-svg.svg"
                     alt="icon"
                     width={50}
                     height={50}
