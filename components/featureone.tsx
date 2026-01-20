@@ -2,6 +2,8 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import AvatarStack from "./avatarstack";
+import { ArrowBigRightDash, ArrowUpFromDotIcon } from "lucide-react";
 
 export default function FeatureOne() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -87,7 +89,7 @@ export default function FeatureOne() {
               <div className="flex items-center justify-between pb-5">
                 <div className="flex items-center gap-3">
                   <Image
-                    src="https://cdn.prod.website-files.com/66e4045e3214e190ccaad452/66e4045e3214e190ccaad4e3_feature-icon-one.svg"
+                    src="/calendar.svg"
                     alt="icon"
                     width={50}
                     height={50}
@@ -105,22 +107,70 @@ export default function FeatureOne() {
               <div className="relative ">
               <div className="relative z-10">
     <Image
-      src="https://cdn.prod.website-files.com/66e4045e3214e190ccaad452/66e4045e3214e190ccaad5b7_feature-image-one.avif"
-      alt="feature"
+      src="/home-banner2.webp"
+      alt="content,creativity,strategy,social,seo,growth,grow branding solutions"
       width={520}
       height={360}
       className="object-cover rounded-xl"
     />
   </div>
 
-  <div className="absolute top-1/2 -right-23 ">
-    <Image
-      src="https://cdn.prod.website-files.com/66e4045e3214e190ccaad452/66e4045e3214e190ccaad4d5_feature-two-dashboard.svg"
-      alt="dashboard"
-      width={350}
-      height={360}
-      className="opacity-80 "
-    />
+  <div className="absolute top-1/2 -right-17  ">
+   
+  <div className="w-[350px] opacity-80">
+  <svg
+    viewBox="0 0 360 200"
+    width="100%"
+    height="100%"
+    preserveAspectRatio="xMidYMid meet"
+    aria-label="Segmentation card"
+  >
+    {/* Card background */}
+    <rect x="0" y="0" width="360" height="200" rx="18" fill="#FFFFFF" />
+
+    {/* Title */}
+    <text x="20" y="30" fontSize="16" fontWeight="600" fill="#0F172A">
+      Segmentation
+    </text>
+    <text x="20" y="48" fontSize="12" fill="#94A3B8">
+      All users
+    </text>
+
+    {/* Legend */}
+    <circle cx="22" cy="74" r="4" fill="#E5E7EB" />
+    <text x="34" y="78" fontSize="12" fill="#CBD5E1">Not specified</text>
+    <text x="190" y="78" fontSize="12" fill="#CBD5E1">800</text>
+    <line x1="220" y1="74" x2="250" y2="74" stroke="#E5E7EB" strokeWidth="2" />
+
+    <circle cx="22" cy="98" r="4" fill="#0B0B2D" />
+    <text x="34" y="102" fontSize="12" fill="#0F172A">Male</text>
+    <text x="190" y="102" fontSize="12" fill="#0F172A">442</text>
+    <line x1="220" y1="98" x2="260" y2="98" stroke="#0B0B2D" strokeWidth="2" />
+
+    <circle cx="22" cy="122" r="4" fill="#5EC3FF" />
+    <text x="34" y="126" fontSize="12" fill="#5EC3FF">Female</text>
+    <text x="190" y="126" fontSize="12" fill="#5EC3FF">230</text>
+    <line x1="220" y1="122" x2="250" y2="122" stroke="#5EC3FF" strokeWidth="2" />
+
+    <circle cx="22" cy="146" r="4" fill="#7C6CFF" />
+    <text x="34" y="150" fontSize="12" fill="#7C6CFF">Other</text>
+    <text x="190" y="150" fontSize="12" fill="#7C6CFF">125</text>
+    <line x1="220" y1="146" x2="240" y2="146" stroke="#7C6CFF" strokeWidth="2" />
+
+    {/* Right bar */}
+    <rect x="290" y="30" width="40" height="140" rx="12" fill="#E5E7EB" />
+    <rect x="290" y="50" width="40" height="110" rx="12" fill="#7bc4f7" />
+    <rect x="290" y="90" width="40" height="90" rx="12" fill="#e879f9" />
+    <rect x="290" y="120" width="40" height="60" rx="12" fill="#0B0B2D" />
+
+    {/* Button */}
+    <rect x="20" y="160" width="90" height="26" rx="10" fill="#F1F5F9" />
+    <text x="38" y="178" fontSize="12" fill="#0F172A">Details</text>
+    <text x="88" y="178" fontSize="12" fill="#0F172A">›</text>
+  </svg>
+</div>
+
+    
   </div>
               
             </div>
@@ -133,13 +183,17 @@ export default function FeatureOne() {
                   y: smoothParallaxY,
                 }}
               >
-            <Image
+            {/* <Image
               src="https://cdn.prod.website-files.com/66e4045e3214e190ccaad452/66e4045e3214e190ccaad526_feature-one-dashboard.svg"
               alt="dashboard"
               width={350}
               height={220}
               className="absolute -bottom-18 -left-35 z-20 "
-            />
+            /> */}
+            <div className="absolute -bottom-0 -left-35 z-20 ">
+              <AvatarStack/>
+            </div>
+          
 
 </motion.div>
           </div>
@@ -147,31 +201,25 @@ export default function FeatureOne() {
           {/* RIGHT – CONTENT */}
           <div className="space-y-6 ">
             <span className="inline-block px-4 py-1 rounded-full text-md font-medium bg-secondary text-white">
-              Feature 1
+            Creative & Content
             </span>
 
             <h3 className="text-4xl font-bold text-foreground">
-              User authentication
+                Content Creation & Strategy
             </h3>
 
             <p className=" max-w-lg">
-              We prioritize the security of your data and ensure that only
-              authorized users have access to your account.
+            We create purposeful content backed by clear strategy to engage audiences and drive brand growth.
             </p>
 
             <ul className="space-y-4 pt-4">
               {[
-                "Data encryption and protection",
-                "Secure login process",
-                "Role-Based access control",
+                "Audience research and content planning",
+                "Strategic content creation aligned with brand goals",
+                "Performance-driven content optimization",
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-3">
-                  <Image
-                    src="https://cdn.prod.website-files.com/66e4045e3214e190ccaad452/66e4045e3214e190ccaad4ed_feature-icon.svg"
-                    alt="icon"
-                    width={25}
-                    height={25}
-                  />
+                 <ArrowUpFromDotIcon className="w-4 h-4 text-accent rotate-90"/>
                   <span className="text-foreground ">
                     {item}
                   </span>

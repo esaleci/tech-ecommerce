@@ -9,7 +9,7 @@ import CTA from '@/components/cta';
 export default function Home() {
   return (
     <>
-      {/* <StructuredData /> */}
+      
     
         <Hero3 />
         <FeatureOne />
@@ -17,13 +17,7 @@ export default function Home() {
         <FeatureTree />
         <AdsBanner />
         <CTA />
-        {/* <Footer /> */}
-        {/* <About />
-        <Services />
-        <Portfolio />
-        <Features />
-        <WorkWith />
-        <Contact /> */}
+       
      
     </>
   );

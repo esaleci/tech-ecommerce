@@ -3,30 +3,27 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { navItems } from "@/lib/data-utils";
 
-const navItems = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Pages", href: "/pages", hasDropdown: true },
-  { name: "Feature", href: "/feature" },
-  { name: "Blog", href: "/blog" },
-];
+
 
 export default function Navbar() {
   const pathname = usePathname();
 
   return (
     <header className="w-full bg-white">
-      <div className="max-w-7xl mx-auto px-6 py-16 h-[72px] flex items-center justify-between">
+      <div className="max-w-2/3 mx-auto px-6 py-16 h-[72px] flex items-center justify-between">
         
         {/* Logo */}
         <Link href="/">
-        <div className="flex items-center gap-2">
+        <Image src="/logo11ed765d.png" alt="logo" width={150} height={100} />
+        {/* <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full bg-brand-gradient" />
           <span className="text-xl font-bold tracking-tight text-foreground">
             Tech W
           </span>
-        </div>
+        </div> */}
         </Link>
 
         {/* Navigation */}

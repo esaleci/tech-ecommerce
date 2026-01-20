@@ -66,12 +66,11 @@ export default function FeatureTow() {
 
  {/* left – CONTENT */}
  <div className="space-y-6 ">
-            <span className="inline-block px-4 py-1 rounded-full text-md font-medium bg-accent text-white">
-            Digital Marketing
-            </span>
+           
 
             <h3 className="text-4xl font-bold text-foreground">
-            Strategic digital growth
+            Integrated Digital Marketing Solutions
+
                         </h3>
 
             <p className=" max-w-lg">
@@ -79,17 +78,23 @@ export default function FeatureTow() {
          </p>
 
            <div className="flex flex-row justify-between  items-start">
-            <div className="flex flex-col justify-start items-start gap-2">
-              <div className="bg-primary-dark rounded-full p-2 w-12 h-12 flex items-center justify-center">
-              <UserPlus2Icon className="w-8 h-8 text-white" /></div>
-             <span className="text-foreground ">Audience & Channel Strategy</span>
-            </div>
-            <div className="flex flex-col justify-start items-start gap-2">
-              <div className="bg-primary-dark rounded-full p-2 w-12 h-12 flex items-center justify-center">
-            <WaypointsIcon className="w-8 h-8 text-white" />
-            </div>
-             <span className="text-foreground ">Campaign Execution & Optimization</span>
-            </div>
+           <ul className="space-y-4 pt-4">
+              {[
+                "Audience & Channel Strategy",
+                "Campaign Execution & Optimization",
+                "Ongoing optimization for sustainable growth",
+              ].map((item, i) => (
+                <li key={i} className="flex items-center gap-3">
+                 <span className="bg-accent rounded-full w-2 h-2 flex items-center justify-center"/>
+                  
+                 
+                  <span className="text-foreground ">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+           
            </div>
          
           </div>

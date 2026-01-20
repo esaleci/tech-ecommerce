@@ -1,10 +1,14 @@
 'use client';
+import { navItems } from "@/lib/data-utils";
 import { motion } from "framer-motion";
 import { FacebookIcon, InstagramIcon, Linkedin, Mail, Phone, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 
 export default function Footer() {
+  const pathname = usePathname();
   return (
     <motion.div
     initial={{ opacity: 0, y: 30 }}
@@ -19,11 +23,17 @@ export default function Footer() {
         {/* TOP */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           <Link href="/" className="flex items-center gap-3">
-            <Image
+            {/* <Image
               src="https://cdn.prod.website-files.com/66e4045e3214e190ccaad452/66e4045e3214e190ccaad598_tech-w-light.svg"
               alt="Tech W"
               width={200}
               height={200}
+            /> */}
+             <Image
+              src="/logo11ed765d.png"
+              alt="Tech W"
+              width={170}
+              height={100}
             />
           </Link>
 
@@ -47,21 +57,21 @@ export default function Footer() {
         </div>
 
         {/* CONTENT */}
-        <div className="flex flex-row justify-between gap-24 mt-16">
+        <div className="flex flex-row justify-between gap-24 mt-10">
 
           {/* LEFT */}
-          <div className="space-y-6 max-w-md">
+          <div className="flex flex-col space-y-6 max-w-md">
             <h5 className="text-lg font-medium text-justify">
           
-            Thank you for visiting our website. Connect us over given email or fill out the form we will reach you soon.
-
-            </h5>
-
-            <a href="mailto:info@growthoptics.com" className="text-background/80 hover:text-secondary gentle-animation text-sm font-medium flex gap-2">
+            GrowthOptics delivers integrated digital, marketing, and technology solutions for modern brands.
+                        </h5>
+                        
+            
+            <a href="mailto:info@growthoptics.com" className="text-background/80 max-w-content hover:text-secondary gentle-animation text-sm font-medium inline-flex items-center gap-2">
               <Mail className="w-4 h-4" />
               <span className="text-sm font-normal leading-5">info@growthoptics.com</span>
             </a>
-            <a href="tel:+919960414939"  className="text-background/80 hover:text-secondary gentle-animation text-sm font-medium flex gap-2">
+            <a href="tel:+919960414939"  className="text-background/80 max-w-content hover:text-secondary gentle-animation text-sm font-medium inline-flex items-center gap-2">
               <Phone className="w-4 h-4" />
               <span className="text-sm font-normal leading-5">+91 9960414939</span>
             </a>
@@ -75,22 +85,29 @@ export default function Footer() {
           <div className="lg:col-span-2 text-left">
             <h6 className="text-lg font-medium mb-6">Quick Links</h6>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm text-white/70">
-              <div className="space-y-3 flex flex-col gap-2">
-                <Link className="hover:text-secondary" href="/">Home</Link>
-                <Link className="hover:text-secondary" href="/home-2">Home 2</Link>
-                <Link className="hover:text-secondary" href="/product-pages/feature">Feature</Link>
-                <Link className="hover:text-secondary" href="/company-pages/about">About</Link>
-              </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 items-center gap-8 text-sm text-white/70">
+             
+              {navItems.map((item) => {
+            const isActive = pathname === item.href;
 
-              <div className="space-y-3 flex flex-col gap-2">
-                <Link className="hover:text-secondary" href="/product-pages/pricing">Pricing</Link>
-                <Link className="hover:text-secondary" href="/product-pages/pricing-ecom">Pricing (Ecom)</Link>
-                <Link className="hover:text-secondary" href="/company-pages/careers">Careers</Link>
-                <Link className="hover:text-secondary" href="/product-pages/integrations">Integrations</Link>
-              </div>
-
-              
+            return (
+              <motion.div
+                key={item.name}
+                whileHover={{ y: -1 }}
+                transition={{ type: "spring", stiffness: 300, damping: 22 }}
+              >
+                <Link
+                  href={item.href}
+                  className={`transition-colors ${
+                      
+                      " hover:text-secondary"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              </motion.div>
+            );
+          })}
             </div>
           </div>
         </div>

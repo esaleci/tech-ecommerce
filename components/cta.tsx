@@ -6,6 +6,13 @@ import Link from "next/link";
 export default function CTA() {
   return (
     <section className="relative pt-12 pb-60">
+      <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className="text-center mb-16"
+  >
       <div className="relative max-w-7xl mx-auto px-6">
        
 {/* Animated Background Elements */}
@@ -64,10 +71,9 @@ export default function CTA() {
 
 
       <div className="relative text-center p-5 flex flex-col items-center justify-center gap-5 z-10">
-        <h2 className="text-4xl font-bold text-foreground py-10">Ready to get started</h2>
+        <h2 className="text-4xl font-bold text-foreground py-10">Let’s build your next digital solution</h2>
         <div className="flex flex-row items-center justify-center gap-5 bg-white/20  rounded-xl p-5 shadow-xl border border-1 border-background">
-        <p className="text-muted max-w-sm text-left">Our comprehensive suite of tools is designed to bring teams together,
-            streamline workflows, and drive success.</p>
+        <p className="text-muted max-w-sm text-left">From strategy to execution, we build solutions that help your business move faster and grow stronger.</p>
         <Link href="/contact" className="bg-accent text-white py-3 px-6 rounded-lg 
         font-medium transition-all duration-500 hover:bg-primary-dark transition flex items-center gap-2 justify-center relative">
             Touch with us
@@ -78,6 +84,7 @@ export default function CTA() {
         </div>
         </div>
       </div>
+      </motion.div>
     </section>
   );
 }
