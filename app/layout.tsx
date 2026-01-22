@@ -17,7 +17,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Artificial Projects | AI-Powered E-commerce Automation Solutions",
+  title: "GrowthOptics | Digital Marketing, Creative & Tech Solutions for Growth",
   description: "Automate customer support, operations, and marketing workflows with AI. We help $3M-$50M e-commerce brands scale without adding headcount. Reduce costs by 75%, increase ROI 2x, and achieve 99.9% uptime.",
   keywords: [
     "e-commerce automation",
@@ -73,10 +73,12 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${outfit.variable} antialiased`}
       >
-          <main className="relative">
+          <main className="relative overflow-hidden 2xl:overflow-visible w-full ">
+            <div className="px-4 xl:px-6 max-w-7xl mx-auto ">
           <Navbar />
         {children}
         <Footer />
+        </div>
         </main>
       </body>
     </html>

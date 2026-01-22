@@ -1,16 +1,13 @@
-import HeroCreative from "@/components/creative/hero";
-
-import CTA from "@/components/cta";
-import FeatureTow from "@/components/marketing/featuretow";
+import FeatureMarketing from "@/components/marketing/featuremarketing";
 import HeroMarketing from "@/components/marketing/hero";
 import ServicesSection from "@/components/marketing/services";
 
 
 export default function DigitalMarketing() {
   return (
-    <div className="flex flex-col gap-3 px-6 max-w-7xl mx-auto">
+    <div className="flex flex-col ">
     <HeroMarketing/>
-   <FeatureTow/>
+   <FeatureMarketing/>
    <ServicesSection/>
     </div>
   );

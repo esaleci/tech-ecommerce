@@ -2,11 +2,35 @@ export const navItems = [
   { name: "Home", href: "/" },
   { name: "Creative & Content", href: "/creative-content" },
   { name: "Digital Marketing", href: "/digital-marketing" },
-  { name: "Tech Solutions", href: "/about" },
-  { name: "ATL & BTL", href: "/pages", hasDropdown: true },
-  { name: "Proccess Outsource", href: "/feature" },
-  { name: "Strategy & Consultancy", href: "/blog" },
+  { name: "Tech Solutions", href: "/tech-solution" },
+  { name: "ATL & BTL", href: "/atl-btl", hasDropdown: true },
+  { name: "Proccess Outsource", href: "/outsource" },
+  { name: "Strategy & Consultancy", href: "/strategy" },
 ];
+
+
+export const navItems1 = [
+  { name: "Home", href: "/" },
+  { name: "Creative", href: "/creative-content" },
+  { name: "Marketing", href: "/digital-marketing" },
+  { name: "Tech", href: "/tech-solution" },
+  { name: "Media", href: "/atl-btl" },
+  { name: "Outsource", href: "/outsource" },
+  { name: "Strategy", href: "/strategy" },
+ 
+];
+
+
+export const navItems2 = [
+  { name: "Home", href: "/" },
+  { name: "Creative & Content", href: "/creative-content" },
+  { name: "Digital Marketing", href: "/digital-marketing" },
+  { name: "Tech Solutions", href: "/tech-solution" },
+  { name: "ATL & BTL", href: "/atl-btl"},
+  { name: "Proccess Outsource", href: "/outsource" },
+  { name: "Strategy & Consultancy", href: "/strategy" },
+];
+
 
 
 export const SocialIcons = [

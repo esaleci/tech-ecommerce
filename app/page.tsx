@@ -2,7 +2,7 @@
 import Hero3 from '@/components/Hero3';
 import FeatureOne from '@/components/featureone';
 import FeatureTow from '@/components/featuretow';
-import FeatureTree from '@/components/featuretree';
+import FeatureThree from '@/components/featurethree';
 import AdsBanner from '@/components/adsbanner';
 import CTA from '@/components/cta';
 
@@ -14,7 +14,7 @@ export default function Home() {
         <Hero3 />
         <FeatureOne />
         <FeatureTow />
-        <FeatureTree />
+        <FeatureThree />
         <AdsBanner />
         <CTA />
        

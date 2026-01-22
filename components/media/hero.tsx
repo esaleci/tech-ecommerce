@@ -4,17 +4,15 @@ import Image from "next/image";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 import { useEffect, useRef, useState } from "react";
-import { useMediaQuery } from "react-responsive";
 
 
 
-export default function HeroCreative() {
+export default function HeroMedia() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [floatOffset,   setFloatOffset] = useState(0);
   const floatAnimationRef = useRef<number | undefined>(undefined);
   const parallaxY = useMotionValue(0);
   const heroRef = useRef<HTMLDivElement>(null);
-  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
   const smoothParallaxY = useSpring(parallaxY, {
     stiffness: 50,
@@ -115,7 +113,7 @@ export default function HeroCreative() {
 
 
       {/* Content */}
-     <div className="flex flex-col w-full gap-5 items-center px-0  xl:px-6 ">
+     <div className="flex flex-col w-full gap-5 items-center max-w-7xl mx-auto px-6 ">
 
 
 
@@ -128,9 +126,9 @@ export default function HeroCreative() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-7xl lg:text-7xl font-bold mb-4 md:mb-6 text-foreground xl:leading-17 max-w-full lg:max-w-2/3"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-7xl font-bold mb-4 md:mb-6 text-foreground leading-20 max-w-2/3"
             >
-          Where creativity meets content strategy
+          Powerful ATL & BTL Strategies for Real Brand Impact
             </motion.h1>
 
             {/* Description */}
@@ -138,9 +136,9 @@ export default function HeroCreative() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.2 }}
-              className="text-base sm:text-lg md:text-xl text-foreground/70 mb-3 md:mb-4 max-w-full md:max-w-2/3 xl:leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-foreground/70 mb-3 md:mb-4 max-w-2/3 leading-relaxed"
             >
-                Our creative and content solutions combine storytelling, design, and strategy to help brands connect, communicate, and grow with clarity and purpose
+               We deliver integrated ATL and BTL marketing solutions that combine mass media reach with targeted engagement to increase brand visibility, strengthen customer connections, and drive measurable business growth across offline and online channels.
             </motion.p>
            
 
@@ -149,62 +147,7 @@ export default function HeroCreative() {
 
 
   {/* creative and content solutions */}
-        <div className="grid grid-cols-1 lg:grid-cols-3   flex-wrap justify-center items-center w-full gap-5 lg:gap-0">
-        <motion.div
-    initial={{ opacity: 0, x: -30 }}
-    animate={{ opacity: 1, x: 0 }}
-    transition={{
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1],
-    }}
-    className="col-span-1 relative flex items-center justify-center w-full"
-  >
-            <motion.div 
-                className="relative z-10 flex items-end justify-center w-full"
-                style={{
-                  y: isMobile ? 0 : smoothParallaxY,
-                }}
-              >
-               
-                  
-                
-            <div className="relative flex w-full lg:max-w-sm flex-row flex-wrap lg:flex-col gap-5 lg:gap-0 ">
-              
-
-               {/* Card 1 */}
-               <div className="block lg:absolute lg:right-0 lg:top-0 rounded-2xl bg-white  p-5 lg:p-8 xl:p-10 shadow-lg lg:w-42 xl:w-48">
-                <p className="text-3xl font-semibold text-indigo-600">98%</p>
-                <p className="mt-1 text-sm text-slate-600">Positive reviews</p>
-              </div>
-
-              {/* Card 2 */}
-              <div className="block lg:absolute lg:right-0 lg:top-46 rounded-2xl bg-white  p-5 lg:p-8 xl:p-10 shadow-lg    lg:w-42 xl:w-48">
-                <p className="text-3xl font-semibold text-indigo-600">5K</p>
-                <p className="mt-1 text-sm text-slate-600">Data transaction</p>
-              </div>
-
-             
-
-              {/* Card 3 */}
-              <div className="block lg:absolute lg:left-0 lg:top-16 xl:-left-5 rounded-2xl bg-white  p-5 lg:p-8 xl:p-10 shadow-lg  lg:w-36 xl:w-48">
-                <p className="text-3xl font-semibold text-indigo-600">1.2M</p>
-                <p className="mt-1 text-sm text-slate-600">Active users</p>
-              </div>
-
-              {/* Spacer */}
-              <div className="h-72 hidden lg:block " />
-            </div>
-         
-        
-             </motion.div>
-
-
-              </motion.div>
-
-          
-
-              
-             
+        <div className="grid grid-cols-1 lg:grid-cols-3   flex-wrap justify-center items-center w-full">
         <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -216,13 +159,72 @@ export default function HeroCreative() {
             >
             
           <div className="bg-accent/10 z-10 backdrop-blur-md rounded-2xl top-10 overflow-hidden shadow-soft pl-4 pt-4 ">
-              <Image src="/creative-banner.webp" 
+              <Image src="/alt-btl-solutions-banner.webp" 
               alt="Creative and content strategy services by GrowthOptics"
               className="object-cover rounded-2xl" 
               width={780} height={300}  priority
               sizes="(max-width: 768px) 100vw, 780px"/>
             </div>
             </motion.div>
+
+
+
+        <motion.div
+    initial={{ opacity: 0, x: -30 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
+    }}
+    className="col-span-1 relative flex items-center justify-center"
+  >
+            <motion.div 
+                className="relative z-10 flex items-end justify-center"
+                style={{
+                  y: smoothParallaxY,
+                }}
+              >
+               
+                  
+                  <div className="relative flex items-center justify-center">
+            <div className="relative w-full max-w-sm">
+              
+
+               {/* Card 1 */}
+               <div className="absolute left-0 top-0 rounded-2xl bg-white p-10 shadow-lg w-48">
+                <p className="text-3xl font-semibold text-indigo-600">+50%</p>
+                <p className="mt-1 text-sm text-slate-600">Increased ROI</p>
+              </div>
+
+              {/* Card 2 */}
+              <div className="absolute left-0 top-46 rounded-2xl bg-white p-10 shadow-lg w-48">
+                <p className="text-3xl font-semibold text-indigo-600">+10%</p>
+                <p className="mt-1 text-sm text-slate-600">Increased Brand Awareness</p>
+              </div>
+
+             
+
+              {/* Card 3 */}
+              <div className="absolute right-10 top-16 rounded-2xl bg-white p-10 shadow-lg w-48">
+                <p className="text-3xl font-semibold text-indigo-600">+1.2M</p>
+                <p className="mt-1 text-sm text-slate-600">Sales Generated</p>
+              </div>
+
+              {/* Spacer */}
+              <div className="h-72" />
+            </div>
+          </div>
+        
+             </motion.div>
+
+
+              </motion.div>
+
+          
+
+              
+             
+       
 
 
           

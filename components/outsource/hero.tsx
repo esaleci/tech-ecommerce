@@ -9,7 +9,7 @@ import { ArrowRightIcon } from "lucide-react";
 
 
 
-export default function HeroMarketing() {
+export default function HeroOutsource() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [floatOffset, setFloatOffset] = useState(0);
   const floatAnimationRef = useRef<number | undefined>(undefined);
@@ -78,8 +78,16 @@ export default function HeroMarketing() {
         className="relative flex justify-center items-center"
       >
         <div className="absolute inset-0  ">
-          <div
+          <motion.div
 
+            transition={{
+              borderRadius: {
+                duration: 18,
+                repeat: Infinity,
+                ease: [0.4, 0, 0.6, 1],
+              },
+
+            }}
             className="absolute top-50 left-30 w-[600px] h-[400px] sm:w-[700px] sm:h-[700px] md:w-[900px] md:h-[500px] mix-blend-multiply filter blur-3xl z-2 opacity-70"
             style={{
               borderRadius: '50%',
@@ -89,8 +97,12 @@ export default function HeroMarketing() {
           />
 
 
-          <div
-           
+          <motion.div
+            // animate={{
+            //   x: -mousePosition.x,
+            //   y: -mousePosition.y,
+            // }}
+            transition={{ type: 'spring', stiffness: 25, damping: 35, mass: 1.5 }}
             className="absolute top-50 left-50 filter blur-3xl w-150 h-150 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-90 z-10"
             style={{
               borderRadius: '20%',
@@ -103,22 +115,22 @@ export default function HeroMarketing() {
 
 
       {/* Content */}
-      <div className="flex flex-col w-full gap-5 items-center  ">
+      <div className="flex flex-col w-full gap-5 items-center max-w-7xl mx-auto px-6 ">
 
 
 
 
 
         {/* heading and description */}
-        <div className="relative space-y-8 w-full text-left lg:text-center mb-8 md:mb-10 xl:mb-20 z-10">
+        <div className="relative space-y-8 col-span-2 w-full text-center mb-20 z-10">
           {/* Main Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-7xl font-bold mb-4 md:mb-6 text-foreground  lg:leading-20"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-7xl font-bold mb-4 md:mb-6 text-foreground leading-20"
           >
-            Marketing that drives growth
+            Smart Outsourcing Solutions for Scalable Business Growth
 
           </motion.h1>
 
@@ -129,7 +141,8 @@ export default function HeroMarketing() {
             transition={{ duration: 0.4, delay: 0.2 }}
             className="text-base sm:text-lg md:text-xl text-foreground/70 mb-3 md:mb-4  leading-relaxed"
           >
-            We design data-driven digital marketing solutions focused on increasing online visibility, reaching the right audience, and turning engagement into measurable business results. By combining strategic planning, performance optimization, and creative execution, we help brands grow traffic, acquire customers, and scale their digital presence effectively.
+          
+          We provide reliable outsourcing services that help businesses reduce costs, streamline operations, and scale efficiently with dedicated expert teams.
           </motion.p>
 
 
@@ -138,13 +151,13 @@ export default function HeroMarketing() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.3 }}
-            className="flex justify-center items-center py-3 md:py-8"
+            className="flex justify-center items-center py-8"
           >
             <Link
               href="/contact"
               className="p-5  rounded-lg text-white text-lg font-medium bg-accent transition-all duration-500 hover:bg-primary-dark inline-flex items-center gap-2"
             >
-              Request a review <ArrowRightIcon className="w-6 h-6" />
+              Let’s Discuss Your Needs <ArrowRightIcon className="w-6 h-6" />
             </Link>
           </motion.div>
 
@@ -178,14 +191,16 @@ export default function HeroMarketing() {
               className="relative flex justify-center items-center col-span-2 w-full"
             >
 
-              <div className="z-10 backdrop-blur-md rounded-2xl overflow-hidden shadow-soft w-full xl:w-[1200px] xl:h-[500px]">
-                <Image src="/marketing-banner.webp"
-                  alt="Creative and content strategy services by GrowthOptics"
-                  width={1200} height={500} priority
-                  sizes="(max-width: 1200px) 100vw, 1200px"
-                  className="object-cover rounded-2xl max-w-full  "
-                   />
-              </div>
+<div className="relative z-10 backdrop-blur-md rounded-2xl overflow-hidden shadow-soft w-[1200px] h-[400px]">
+  <Image
+    src="/global-business-services.avif"
+    alt="Creative and content strategy services by GrowthOptics"
+    fill
+    priority
+    sizes="(max-width: 1200px) 100vw, 1200px"
+    className="object-cover object-center rounded-2xl"
+  />
+</div>
             </motion.div>
 
           </motion.div>

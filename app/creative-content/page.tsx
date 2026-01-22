@@ -5,7 +5,7 @@ import CTA from "@/components/cta";
 
 export default function CreativeContent() {
   return (
-    <div className="flex flex-col gap-3 px-6 max-w-7xl mx-auto">
+    <div className="flex flex-col  ">
     <HeroCreative/>
     <ServicesSection/>
     <CTA/>

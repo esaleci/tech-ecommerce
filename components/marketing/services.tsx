@@ -16,11 +16,11 @@ export default function ServicesSection() {
   
             className="relative flex justify-center items-center"
             >
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="py-8 md:py-10 lg:py-16 xl:py-24">
+        
           
           {/* Section title */}
-          <div className="mx-auto mb-16 max-w-3xl text-center">
+          <div className=" mb-16 lg:max-w-4xl text-left lg:text-center lg:mx-auto">
             <h2 className="text-5xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-4">
             Core Digital Marketing Services
             
@@ -31,9 +31,13 @@ export default function ServicesSection() {
           </div>
   
           {/* Cards */}
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {digitalMarketingServices.map((item, index) => (
-            <div key={index} className={`rounded-2xl bg-white p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-103 `}>
+            <div key={index} className={`rounded-2xl bg-white p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-103 `}
+            style={{
+              boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.1)',
+            }}
+            >
                 <div className= {`flex items-center rounded-full bg-${item.bgColor} p-2 w-14 h-14 justify-center mb-4`}>
                 {item.icon}
                 </div>
@@ -45,7 +49,7 @@ export default function ServicesSection() {
            
   
           </div>
-        </div>
+       
       </section>
       </motion.div>
     );

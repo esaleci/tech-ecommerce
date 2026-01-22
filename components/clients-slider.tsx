@@ -3,7 +3,7 @@ import { LogoCloud } from "./logo-cloud";
 
 export default function ClientsSlider() {
   return (
-    <div className="w-full place-content-center py-20">
+    <div className="w-full place-content-center py-5 md:py-20">
     <div
         aria-hidden="true"
         className={cn(

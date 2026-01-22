@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { DatabaseIcon, ShieldCheckIcon, UserPlus2Icon, Waypoints, WaypointsIcon } from "lucide-react";
 
-export default function FeatureTow() {
+export default function FeatureStrategyOne() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const heroRef = useRef<HTMLDivElement>(null);
     const floatAnimationRef = useRef<number | undefined>(undefined);
@@ -61,7 +61,7 @@ export default function FeatureTow() {
     className="text-center md:text-left"
   >
     
-      <div className="max-w-7xl mx-auto px-6 py-24">
+      <div className="max-w-7xl mx-auto px-6 py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
  {/* left – CONTENT */}
@@ -69,20 +69,20 @@ export default function FeatureTow() {
            
 
             <h3 className="text-4xl font-bold text-foreground">
-            Integrated Digital Marketing Solutions
+            Strategic Integrated Solutions
 
                         </h3>
 
             <p className=" max-w-lg">
-            We help brands connect with the right audience and scale their digital presence with performance-focused marketing.
+            We deliver integrated strategic solutions that align business goals, market insights, and execution plans to solve real challenges and drive sustainable growth.
          </p>
 
            <div className="flex flex-row justify-between  items-start">
            <ul className="space-y-4 pt-4">
               {[
-                "Audience & Channel Strategy",
-                "Campaign Execution & Optimization",
-                "Ongoing optimization for sustainable growth",
+                "Business goals aligned with actionable strategy",
+                "Cross-channel planning and execution",
+                "Scalable solutions for long-term growth",
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-3">
                  <span className="bg-accent rounded-full w-2 h-2 flex items-center justify-center"/>
@@ -109,7 +109,7 @@ export default function FeatureTow() {
           //   y: -mousePosition.y,
           // }}
           transition={{ type: 'spring', stiffness: 25, damping: 35, mass: 1.5 }}
-          className="absolute -top-50 left-0 w-140 h-110 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-80 z-10"
+          className="absolute -top-30 left-0 w-140 h-110 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-80 z-10"
           style={{
             borderRadius: '20%',
             transformOrigin: 'center',
@@ -123,7 +123,7 @@ export default function FeatureTow() {
           //   y: -mousePosition.y,
           // }}
           transition={{ type: 'spring', stiffness: 25, damping: 35, mass: 1.5 }}
-          className="absolute -bottom-50 left-32   w-70 h-70 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-70 z-10"
+          className="absolute -bottom-30 left-32   w-70 h-70 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-70 z-10"
           style={{
             borderRadius: '20%',
             transformOrigin: 'center',
@@ -131,29 +131,44 @@ export default function FeatureTow() {
           }}
         />
             {/* main card */}
-            <div className="relative z-10 rounded-xl shadow-soft w-50 h-20 shadow-xl  p-8 ">
+            <div className="relative flex  items-center">
+            <div className="relative left-0 -top-0 z-9 bg-primary-dark/10 rounded-xl shadow-soft   h-50 w-50 shadow-xl   w-full "/>
+          <div className="absolute top-0 left-0 z-10 w-full h-full">
 
-          
-
-            
-            </div>
-
-            {/* floating dashboard images */}
+            <Image
+      src="/home-banner2.webp"
+      alt="content,creativity,strategy,social,seo,growth,grow branding solutions"
+      width={520}
+      height={360}
+      className="object-cover rounded-xl "
+    />
+    </div>
+   
+ {/* floating dashboard images */}
             <motion.div 
-                className="relative z-10 flex items-end justify-center"
+                className="relative absolute top-0 right-100  z-10 flex items-end justify-center"
                 style={{
                   y: smoothParallaxY,
                 }}
               >
-            <Image
-              src="/income.png"
-              alt="dashboard"
-              width={200}
-              height={400}
-              className="absolute  z-20 rounded-3xl shadow-soft "
-            />
+            <div className="relative w-full max-w-sm">
+              
+
+             
+
+             {/* Card 3 */}
+             <div className="absolute right-10 top-16 rounded-2xl bg-white p-10 shadow-lg w-48">
+               <p className="text-3xl font-semibold text-accent">+10%</p>
+               <p className="mt-1 text-sm text-slate-600">Increased ROI</p>
+             </div>
+
+             {/* Spacer */}
+             <div className="h-72" />
+           </div>
 
 </motion.div>
+            </div>
+           
           </div>
 
          

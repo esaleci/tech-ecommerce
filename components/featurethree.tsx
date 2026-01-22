@@ -3,12 +3,14 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { DatabaseIcon, Plus, ShieldCheckIcon } from "lucide-react";
+import { useMediaQuery } from "react-responsive";
 
-export default function FeatureTree() {
+export default function FeatureThree() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const heroRef = useRef<HTMLDivElement>(null);
     const floatAnimationRef = useRef<number | undefined>(undefined);
     const parallaxY = useMotionValue(0);
+    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const smoothParallaxY = useSpring(parallaxY, {
     stiffness: 50,
     damping: 30,
@@ -61,11 +63,11 @@ export default function FeatureTree() {
     className="text-center md:text-left"
   >
     
-      <div className="max-w-7xl mx-auto px-6 py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div className="py-8 md:py-10 lg:py-16 xl:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
 
   {/* Right – IMAGE / DASHBOARD */}
- <div className="relative">
+ <div className="relative z-20 ">
 
 {/* soft background glow */}
 
@@ -89,16 +91,10 @@ background: 'radial-gradient(circle, rgba(187, 29, 255, 0.4) 0%, rgba(187, 29, 2
 <motion.div 
     className="relative z-10 flex items-end justify-center"
     style={{
-      y: smoothParallaxY,
+      y: isMobile ? 0 : smoothParallaxY,
     }}
   >
-{/* <Image
-  src="https://cdn.prod.website-files.com/66e4045e3214e190ccaad452/66e4045e3214e190ccaad4f6_feature-four-dashboard.svg"
-  alt="dashboard"
-  width={300}
-  height={400}
-  className=""
-/> */}
+
 <div className="w-[400px] h-[300px] flex flex-col gap-5 items-center justify-center">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" fill="none">
   <defs>
@@ -201,7 +197,7 @@ background: 'radial-gradient(circle, rgba(187, 29, 255, 0.4) 0%, rgba(187, 29, 2
  
 
          {/* left – CONTENT */}
-          <div className="space-y-6 ">
+          <div className="space-y-6 text-left">
             <span className="inline-block px-4 py-1 rounded-full text-md font-medium bg-primary-dark text-white">
             Tech Solutions
             </span>

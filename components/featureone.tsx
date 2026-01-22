@@ -4,12 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import AvatarStack from "./avatarstack";
 import { ArrowBigRightDash, ArrowUpFromDotIcon } from "lucide-react";
+import { useMediaQuery } from "react-responsive";
 
 export default function FeatureOne() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const heroRef = useRef<HTMLDivElement>(null);
     const floatAnimationRef = useRef<number | undefined>(undefined);
     const parallaxY = useMotionValue(0);
+    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const smoothParallaxY = useSpring(parallaxY, {
     stiffness: 50,
     damping: 30,
@@ -62,26 +64,23 @@ export default function FeatureOne() {
     className="text-center md:text-left"
   >
     
-      <div className="max-w-7xl mx-auto px-6 py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div className="py-8 md:py-10 lg:py-16 xl:py-24">
+        <div className="grid  grid-cols-1 md:grid-cols-2 gap-20 items-center">
 
           {/* LEFT – IMAGE / DASHBOARD */}
-          <div className="relative">
+          <div className="relative  ">
 
             {/* soft background glow */}
-            <motion.div
-          // animate={{
-          //   x: -mousePosition.x,
-          //   y: -mousePosition.y,
-          // }}
-          transition={{ type: 'spring', stiffness: 25, damping: 35, mass: 1.5 }}
-          className="absolute top-52 right-32 md:top-52 md:right-40 lg:-top-20 lg:-left-20 w-150 h-150 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-80 z-10"
+            <div
+         
+          className="absolute top-0 right-0  lg:-top-20 lg:-left-20  w-100 h-100 lg:w-150 lg:h-150 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-80 z-10"
           style={{
             borderRadius: '20%',
             transformOrigin: 'center',
             background: 'radial-gradient(circle, rgba(0, 121, 242, 0.4) 0%, rgba(0, 121, 242, 0.25) 30%, rgba(0, 121, 242, 0.15) 60%, rgba(0, 121, 242, 0.05) 85%, transparent 100%)',
           }}
         />
+
             {/* main card */}
             <div className="relative z-10 rounded-xl shadow-soft border border-gray-100 shadow-xl  p-8 ">
 
@@ -117,7 +116,7 @@ export default function FeatureOne() {
 
   <div className="absolute top-1/2 -right-17  ">
    
-  <div className="w-[350px] opacity-80">
+  <div className="w-[350px] xl:block hidden opacity-80">
   <svg
     viewBox="0 0 360 200"
     width="100%"
@@ -178,9 +177,9 @@ export default function FeatureOne() {
 
             {/* floating dashboard images */}
             <motion.div 
-                className="relative z-10 flex items-end justify-center"
+                className="relative 2xl:block hidden z-10 flex items-end justify-center"
                 style={{
-                  y: smoothParallaxY,
+                  y: isMobile ? 0 : smoothParallaxY,
                 }}
               >
             {/* <Image
@@ -190,7 +189,7 @@ export default function FeatureOne() {
               height={220}
               className="absolute -bottom-18 -left-35 z-20 "
             /> */}
-            <div className="absolute -bottom-0 -left-35 z-20 ">
+            <div className="absolute  -bottom-0 -left-35 z-20 ">
               <AvatarStack/>
             </div>
           
@@ -199,7 +198,7 @@ export default function FeatureOne() {
           </div>
 
           {/* RIGHT – CONTENT */}
-          <div className="space-y-6 ">
+          <div className="space-y-6 text-left">
             <span className="inline-block px-4 py-1 rounded-full text-md font-medium bg-secondary text-white">
             Creative & Content
             </span>
@@ -218,9 +217,9 @@ export default function FeatureOne() {
                 "Strategic content creation aligned with brand goals",
                 "Performance-driven content optimization",
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3">
+                <li key={i} className="flex items-center gap-3 justify-start">
                  <ArrowUpFromDotIcon className="w-4 h-4 text-accent rotate-90"/>
-                  <span className="text-foreground ">
+                  <span className="text-foreground text-start">
                     {item}
                   </span>
                 </li>
