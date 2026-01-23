@@ -100,14 +100,14 @@ export default function Navbar() {
            {/* Mobile Menu Button */}
            <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-foreground hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+            className="lg:hidden p-2 rounded-lg bg-foreground text-white hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />
             ) : (
-              <Menu className="w-6 h-6" />
+              <Menu className="w-6 h-6 " />
             )}
           </button>
         </div>
