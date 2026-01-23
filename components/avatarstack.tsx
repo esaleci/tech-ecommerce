@@ -12,7 +12,7 @@ export default function AvatarStack() {
       <div className="relative flex flex-row gap-4 -space-x-3">
         {avatars.map((avatar, i) => (
            
-            <div className="relative">
+            <div  key={'avatar-'+i} className="relative">
           <div
             key={i}
             className="relative w-10 h-10 rounded-full border-2 border-white overflow-hidden"

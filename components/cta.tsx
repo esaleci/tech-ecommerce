@@ -34,14 +34,14 @@ export default function CTA() {
             x: { type: 'spring', stiffness: 8, damping: 70, mass: 4 },
 
           }}
-          className="absolute top-0 right-25 w-[600px] h-[400px] sm:w-[700px] sm:h-[700px] md:w-[900px] md:h-[600px] mix-blend-multiply filter blur-3xl z-2"
+          className="absolute top-0 right-25 w-[600px] h-[400px] sm:w-[700px] sm:h-[700px] md:w-[900px] md:h-[600px] mix-blend-multiply filter blur-3xl z-2 opacity-30"
           style={{
             borderRadius: '50%',
             transformOrigin: 'center',
             background: 'radial-gradient(circle, rgba(0, 121, 242, 0.4) 0%, rgba(0, 121, 242, 0.25) 30%, rgba(0, 121, 242, 0.15) 60%, rgba(0, 121, 242, 0.05) 85%, transparent 100%)',
           }}
         />
-        <div
+        {/* <div
          
           className="absolute top-0 right-0 w-72 h-72 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-50 z-10"
           style={{
@@ -58,7 +58,7 @@ export default function CTA() {
             transformOrigin: 'center',
             background: 'radial-gradient(circle,  rgba(0, 121, 242, 0.15) 0%, rgba(250, 97, 229, 0.55) 15%, transparent 100%)',
           }}
-        />
+        /> */}
       </div>
 
 
