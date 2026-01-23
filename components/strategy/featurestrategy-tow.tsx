@@ -105,7 +105,7 @@ export default function FeatureStrategyTow() {
                 }}
               >
             <Image
-              src="/income.png"
+              src="/income-png.png"
               alt="dashboard"
               width={200}
               height={400}

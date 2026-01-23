@@ -80,7 +80,7 @@ background: 'radial-gradient(circle, rgba(187, 29, 255, 0.4) 0%, rgba(187, 29, 2
 <div className="absolute top-10 left-10 rounded-xl shadow-soft w-40 h-40 shadow-xl  p-8 hidden md:block " />
 <div className="absolute top-0 left-0 rounded-xl shadow-soft w-40 h-40 shadow-xl  p-8 hidden md:block " />
 <Image
-  src="/income.png"
+  src="/income-png.png"
   alt="tech solutions website,"
   width={200}
   height={400}

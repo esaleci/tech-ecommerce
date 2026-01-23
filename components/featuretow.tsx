@@ -136,7 +136,7 @@ export default function FeatureTow() {
                 }}
               >
                 <Image
-                  src="/income.png"
+                  src="/income-png.png"
                   alt="dashboard"
 
                   width={200}
