@@ -1,5 +1,6 @@
 'use client';
 import { motion } from "framer-motion";
+import { FacebookIcon, InstagramIcon, Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -44,14 +45,14 @@ export default function ContactSection() {
               href="mailto:hello@example.com"
               className="text-foreground hover:underline"
             >
-               info@growthoptics.com
+               connect@growthoptics.in
             </a>
           </div>
 
           <div>
             <h2 className="ftext-xl font-bold text-foreground mb-2">Address</h2>
             <p className="text-muted">
-              Kishangarh, Rajasthan, India
+            No. 21 & 21A, Sector 142, Noida - 201304
             </p>
           </div>
 
@@ -71,25 +72,26 @@ export default function ContactSection() {
               {[
                 {
                   href: "https://www.facebook.com/",
-                  src: "https://cdn.prod.website-files.com/66e4045e3214e190ccaad452/66e4045e3214e190ccaad4a0_facebook.svg",
+                  icon: <FacebookIcon className="text-white w-4 h-4" />,
                 },
                 {
                   href: "https://www.instagram.com/",
-                  src: "https://cdn.prod.website-files.com/66e4045e3214e190ccaad452/66e4045e3214e190ccaad49e_instagram.svg",
+                  icon: <InstagramIcon className="text-white w-4 h-4" />,
                 },
                 {
                   href: "https://www.twitter.com/",
-                  src: "https://cdn.prod.website-files.com/66e4045e3214e190ccaad452/66e4045e3214e190ccaad49d_twitter.svg",
+                  icon: <Linkedin className="text-white w-4 h-4" />,
                 },
               ].map((item, i) => (
-                <a key={i} href={item.href} target="_blank">
-                  <Image
-                    src={item.src}
-                    alt="social"
-                    width={18}
-                    height={18}
-                  />
-                </a>
+                <Link
+                key={i}
+                href={item.href}
+                target="_blank"
+                className="w-6 h-6 rounded-full bg-foreground text-white flex items-center justify-center hover:scale-105 transition"
+              >
+                {item.icon}
+              </Link>
+                
               ))}
             </div>
           </div>

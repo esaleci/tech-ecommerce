@@ -41,7 +41,7 @@ export default function Footer() {
             {[
               { href: "https://www.instagram.com/", icon: <InstagramIcon className="text-foreground" /> },
               { href: "", icon: <FacebookIcon className="text-foreground" /> },
-              { href: "https://in.linkedin.com/", icon: <Linkedin className="text-foreground" /> },
+              { href: "https://www.linkedin.com/company/86808961/", icon: <Linkedin className="text-foreground" /> },
               { href: "https://twitter.com/", icon: <X className="text-foreground" /> },
             ].map((item, i) => (
               <Link
