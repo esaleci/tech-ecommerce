@@ -61,11 +61,11 @@ export default function FeatureOutsourceOne() {
     className="text-center md:text-left"
   >
     
-      <div className="max-w-7xl mx-auto px-6 py-32">
+      <div className=" py-8 md:py-10 lg:py-16 xl:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
  {/* left – CONTENT */}
- <div className="space-y-6 ">
+ <div className="space-y-6 text-left ">
            
 
             <h3 className="text-4xl font-bold text-foreground">
@@ -100,15 +100,10 @@ export default function FeatureOutsourceOne() {
           </div>
 
           {/* Right – IMAGE / DASHBOARD */}
-          <div className="relative">
+          <div className="relative hidden lg:block">
 
             {/* soft background glow */}
-            <motion.div
-          // animate={{
-          //   x: -mousePosition.x,
-          //   y: -mousePosition.y,
-          // }}
-          transition={{ type: 'spring', stiffness: 25, damping: 35, mass: 1.5 }}
+            <div
           className="absolute -top-20 left-0 w-140 h-110 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-80 z-10"
           style={{
             borderRadius: '20%',
@@ -117,12 +112,7 @@ export default function FeatureOutsourceOne() {
           }}
         />
 
-<motion.div
-          // animate={{
-          //   x: -mousePosition.x,
-          //   y: -mousePosition.y,
-          // }}
-          transition={{ type: 'spring', stiffness: 25, damping: 35, mass: 1.5 }}
+<div
           className="absolute -top-0 left-32   w-70 h-70 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-70 z-10"
           style={{
             borderRadius: '20%',
@@ -130,6 +120,8 @@ export default function FeatureOutsourceOne() {
             background: 'radial-gradient(circle, rgba(187, 29, 255, 0.4) 0%, rgba(187, 29, 255, 0.25) 30%, rgba(187, 29, 255, 0.15) 60%, rgba(187, 29, 255, 0.05) 85%, transparent 100%)',
           }}
         />
+
+
             {/* main card */}
             <div className="relative flex flex-row justify-between items-center">
             <div className="relative left-0 top-0 z-10 rounded-xl shadow-soft w-50 h-50 shadow-xl  p-8 "/>
@@ -146,13 +138,13 @@ export default function FeatureOutsourceOne() {
               
 
               {/* Card 1 */}
-              <div className="absolute left-0 top-0 rounded-2xl bg-white p-10 shadow-lg w-48">
+              <div className="absolute lg:left-30 lg:top-0 xl:left-0 xl:top-0 rounded-2xl bg-white p-10 shadow-lg w-48">
                <p className="text-3xl font-semibold text-indigo-600">+50%</p>
                <p className="mt-1 text-sm text-slate-600">Reduced Costs</p>
              </div>
 
              {/* Card 2 */}
-             <div className="absolute left-0 top-46 rounded-2xl bg-white p-10 shadow-lg w-48">
+             <div className="absolute lg:left-30 lg:top-46 xl:left-0 xl:top-46 rounded-2xl bg-white p-10 shadow-lg w-48">
                <p className="text-3xl font-semibold text-indigo-600">+10%</p>
                <p className="mt-1 text-sm text-slate-600">Increased Productivity</p>
              </div>
@@ -160,7 +152,7 @@ export default function FeatureOutsourceOne() {
             
 
              {/* Card 3 */}
-             <div className="absolute right-10 top-16 rounded-2xl bg-white p-10 shadow-lg w-48">
+             <div className="absolute lg:-right-20 lg:top-16 xl:right-10 xl:top-16 rounded-2xl bg-white p-10 shadow-lg w-48">
                <p className="text-3xl font-semibold text-accent">+1.2M</p>
                <p className="mt-1 text-sm text-slate-600">Focused on Core Business</p>
              </div>

@@ -8,7 +8,7 @@ import HeroStrategy from "@/components/strategy/hero";
 
 export default function TechSolutionPage() {
   return (
-    <div className="flex flex-col gap-3 px-6 max-w-7xl mx-auto">
+    <div className="flex flex-col ">
         <HeroStrategy/>
         <FeatureStrategyOne/>
         <FeatureStrategyTow/>

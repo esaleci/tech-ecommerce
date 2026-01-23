@@ -6,7 +6,7 @@ import { Code2Icon, DatabaseIcon, Redo2Icon, ShieldCheckIcon, ShoppingBagIcon, U
 
 export default function FeatureTwoTech() {
   
-
+  
 
   return (
     <section className="relative  "
@@ -21,15 +21,15 @@ export default function FeatureTwoTech() {
     className="text-center md:text-left"
   >
     
-      <div className="max-w-7xl mx-auto px-6 py-24">
+      <div className="  py-8 md:py-10 lg:py-16 xl:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
 
   {/* left – CONTENT */}
-  <div className="space-y-6 ">
- <div className="flex flex-col gap-4">
+  <div className="space-y-6  order-2 lg:order-1 z-20">
+ <div className="flex flex-col md:flex-row lg:flex-col gap-4">
           
-            <div  className="rounded-2xl bg-white p-8    "
+            <div  className="rounded-2xl bg-white p-8  text-left  "
             style={{
               boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.1)',
             }}
@@ -45,7 +45,7 @@ export default function FeatureTwoTech() {
               </div>
 
 
-              <div  className={`rounded-2xl bg-white p-8    `}
+              <div  className={`rounded-2xl bg-white p-8  text-left  `}
                 style={{
                   boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.1)',
                 }}
@@ -70,11 +70,11 @@ export default function FeatureTwoTech() {
 
  {/* right – Images */}
  
-        <div className="relative">
+        <div className="relative order-1 lg:order-2 z-10">
 
 {/* soft background glow */}
 <div
-className="absolute -top-50 left-0 w-140 h-110 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-80 z-10"
+className="absolute -top-10 -left-20 md:-top-20 md:left-10 lg:-top-50 lg:left-0 w-100 h-80  md:w-140 md:h-110  bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-80 z-10"
 style={{
 borderRadius: '20%',
 transformOrigin: 'center',
@@ -89,7 +89,7 @@ background: 'radial-gradient(circle, rgba(187, 29, 255, 0.4) 0%, rgba(187, 29, 2
 {/* floating dashboard images */}
 
 <div className="relative z-10 flex items-end justify-center">
-<div className="absolute -top-20 left-30 z-20 rounded-3xl shadow-soft  overflow-hidden ">
+<div className="block lg:absolute -top-20 left-30 z-20 rounded-3xl shadow-soft  overflow-hidden ">
 
 <Image
   src="/marketing-banner.webp"
@@ -102,8 +102,8 @@ background: 'radial-gradient(circle, rgba(187, 29, 255, 0.4) 0%, rgba(187, 29, 2
 </div>
 
 
-<div className="absolute -top-30 left-10 rounded-xl shadow-soft w-40 h-40 shadow-xl opacity-70 p-8 " />
-<div className="absolute top-10 -right-10 rounded-xl shadow-soft w-40 h-40 shadow-xl opacity-75 p-8 " />
+<div className="absolute -top-30 left-10 md:-top-10 lg:left-10  lg:-top-30 lg:left-10 rounded-xl shadow-soft w-40 h-40 shadow-xl opacity-70 p-8 hidden md:block " />
+<div className="absolute top-25 right-10 md:top-25 md:right-20 lg:top-10 lg:-right-10 rounded-xl shadow-soft w-40 h-40 shadow-xl opacity-75 p-8  " />
 
 </div>
 

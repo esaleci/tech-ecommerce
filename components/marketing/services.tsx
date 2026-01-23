@@ -38,7 +38,7 @@ export default function ServicesSection() {
               boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.1)',
             }}
             >
-                <div className= {`flex items-center rounded-full bg-${item.bgColor} p-2 w-14 h-14 justify-center mb-4`}>
+                <div className= {`flex items-center rounded-full ${item.bgColor==='slate-100' ? 'bg-slate-100' : 'bg-'+item.bgColor} p-2 w-14 h-14 justify-center mb-4`}>
                 {item.icon}
                 </div>
                 <h3 className="mb-4 text-xl font-semibold text-slate-900">{item.title}</h3>

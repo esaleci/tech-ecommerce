@@ -16,12 +16,12 @@ export default function ServicesMedia() {
   
             className="relative flex justify-center items-center"
             >
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="py-8 md:py-10 lg:py-16 xl:py-24">
+       
           
           {/* Section title */}
-          <div className="mx-auto mb-16 max-w-3xl text-center">
-            <h2 className="text-5xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-5">
+          <div className="mb-16 max-w-full  lg:max-w-4xl text-left lg:text-center lg:mx-auto">
+            <h2 className="text-4xl font-bold tracking-tight text-slate-900  mb-5">
             Integrated ATL & BTL Advertising Solutions
            
             </h2>
@@ -29,10 +29,14 @@ export default function ServicesMedia() {
           </div>
   
           {/* Cards */}
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {servicesMedia.map((item, index) => (
-            <div key={index} className={`rounded-2xl bg-white p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-103 `}>
-                <div className= {`flex items-center rounded-full bg-${item.bgColor} p-2 w-14 h-14 justify-center mb-4`}>
+            <div key={index} className={`rounded-2xl bg-white p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-103 `}
+            style={{
+              boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.1)',
+            }}
+            >
+                <div className= {`flex items-center rounded-full ${item.bgColor==='slate-100' ? 'bg-slate-100' : 'bg-'+item.bgColor} p-2 w-14 h-14 justify-center mb-4`}>
                 {item.icon}
                 </div>
                 <h3 className="mb-4 text-xl font-semibold text-slate-900">{item.title}</h3>
@@ -43,7 +47,7 @@ export default function ServicesMedia() {
            
   
           </div>
-        </div>
+        
       </section>
       </motion.div>
     );

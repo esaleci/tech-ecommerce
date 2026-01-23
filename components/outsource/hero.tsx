@@ -63,72 +63,28 @@ export default function HeroOutsource() {
   return (
     <div id="creative-content"
       ref={heroRef}
-      className="relative  bg-white   py-5">
+      className="relative  bg-white   py-5 ">
 
 
 
-      {/*  Background Elements */}
-      <motion.div
-        initial={{ opacity: 0, x: -30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{
-          duration: 0.8,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-        className="relative flex justify-center items-center"
-      >
-        <div className="absolute inset-0  ">
-          <motion.div
 
-            transition={{
-              borderRadius: {
-                duration: 18,
-                repeat: Infinity,
-                ease: [0.4, 0, 0.6, 1],
-              },
-
-            }}
-            className="absolute top-50 left-30 w-[600px] h-[400px] sm:w-[700px] sm:h-[700px] md:w-[900px] md:h-[500px] mix-blend-multiply filter blur-3xl z-2 opacity-70"
-            style={{
-              borderRadius: '50%',
-              transformOrigin: 'center',
-              background: 'radial-gradient(circle, rgba(0, 121, 242, 0.4) 0%, rgba(0, 121, 242, 0.25) 30%, rgba(0, 121, 242, 0.15) 60%, rgba(0, 121, 242, 0.05) 85%, transparent 100%)',
-            }}
-          />
-
-
-          <motion.div
-            // animate={{
-            //   x: -mousePosition.x,
-            //   y: -mousePosition.y,
-            // }}
-            transition={{ type: 'spring', stiffness: 25, damping: 35, mass: 1.5 }}
-            className="absolute top-50 left-50 filter blur-3xl w-150 h-150 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-90 z-10"
-            style={{
-              borderRadius: '20%',
-              transformOrigin: 'center',
-              background: 'radial-gradient(circle,  rgba(0, 121, 242, 0.15) 0%, rgba(250, 97, 229, 0.55) 15%, transparent 100%)',
-            }}
-          />
-        </div>
-      </motion.div>
 
 
       {/* Content */}
-      <div className="flex flex-col w-full gap-5 items-center max-w-7xl mx-auto px-6 ">
+      <div className="flex flex-col w-full gap-5 items-center  ">
 
 
 
 
 
         {/* heading and description */}
-        <div className="relative space-y-8 col-span-2 w-full text-center mb-20 z-10">
+        <div className="relative space-y-8 col-span-2 w-full text-left lg:text-center  mb-5 lg:mb-20 z-10">
           {/* Main Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-7xl font-bold mb-4 md:mb-6 text-foreground leading-20"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-7xl font-bold mb-4 md:mb-6 text-foreground lg:leading-20"
           >
             Smart Outsourcing Solutions for Scalable Business Growth
 
@@ -141,8 +97,8 @@ export default function HeroOutsource() {
             transition={{ duration: 0.4, delay: 0.2 }}
             className="text-base sm:text-lg md:text-xl text-foreground/70 mb-3 md:mb-4  leading-relaxed"
           >
-          
-          We provide reliable outsourcing services that help businesses reduce costs, streamline operations, and scale efficiently with dedicated expert teams.
+
+            We provide reliable outsourcing services that help businesses reduce costs, streamline operations, and scale efficiently with dedicated expert teams.
           </motion.p>
 
 
@@ -171,6 +127,8 @@ export default function HeroOutsource() {
 
         {/* creative and content solutions */}
         <div className="flex   justify-center items-center w-full">
+
+          {/*  Background Elements */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -178,7 +136,40 @@ export default function HeroOutsource() {
               duration: 0.8,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="col-span-1 relative flex items-center justify-center"
+            className="relative flex justify-center items-center"
+          >
+            <div className="absolute inset-0  ">
+              <div
+
+                className="absolute -top-40 left-10 md:-top-50 md:-left-10 lg:-top-60 lg:-left-10 xl:-top-70 xl:left-0  w-[500px] h-[300px] md:w-[600px] md:h-[400px] lg:w-[700px] lg:h-[400px] xl:w-[900px] xl:h-[500px] mix-blend-multiply filter blur-3xl z-2 opacity-70"
+                style={{
+                  borderRadius: '50%',
+                  transformOrigin: 'center',
+                  background: 'radial-gradient(circle, rgba(0, 121, 242, 0.4) 0%, rgba(0, 121, 242, 0.25) 30%, rgba(0, 121, 242, 0.15) 60%, rgba(0, 121, 242, 0.05) 85%, transparent 100%)',
+                }}
+              />
+
+
+              <div
+                className="absolute -top-40 left-10 md:-top-40 md:left-10 lg:-top-70 lg:left-20 xl:-top-90 xl:left-10 filter blur-3xl w-70 h-70 xl:w-150 xl:h-150  bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-90 z-10"
+                style={{
+                  borderRadius: '20%',
+                  transformOrigin: 'center',
+                  background: 'radial-gradient(circle,  rgba(0, 121, 242, 0.15) 0%, rgba(250, 97, 229, 0.55) 15%, transparent 100%)',
+                }}
+              />
+            </div>
+          </motion.div>
+
+
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.8,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="col-span-1 relative flex items-center justify-center w-full"
           >
 
             <motion.div
@@ -191,16 +182,16 @@ export default function HeroOutsource() {
               className="relative flex justify-center items-center col-span-2 w-full"
             >
 
-<div className="relative z-10 backdrop-blur-md rounded-2xl overflow-hidden shadow-soft w-[1200px] h-[400px]">
-  <Image
-    src="/global-business-services.avif"
-    alt="Creative and content strategy services by GrowthOptics"
-    fill
-    priority
-    sizes="(max-width: 1200px) 100vw, 1200px"
-    className="object-cover object-center rounded-2xl"
-  />
-</div>
+              <div className="relative z-10 backdrop-blur-md rounded-2xl overflow-hidden shadow-soft w-[100vw] h-[150px] md:h-[250px] lg:h-[300px] xl:w-[1200px] xl:h-[400px]">
+                <Image
+                  src="/global-business-services.avif"
+                  alt="Creative and content strategy services by GrowthOptics"
+                  fill
+                  priority
+                  sizes="(max-width: 1200px) 100vw, 1200px"
+                  className="object-cover object-center rounded-2xl"
+                />
+              </div>
             </motion.div>
 
           </motion.div>

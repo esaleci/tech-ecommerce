@@ -15,7 +15,7 @@ export default function ClientsSlider() {
 
       <section className="relative mx-auto max-w-7xl">
         <h2 className="mb-5 text-center font-medium text-foreground text-xl tracking-tight md:text-3xl">
-          <span className="text-muted-foreground">Trusted technology for leading innovators</span>
+          <span className="text-muted-foreground">Trusted by teams we’ve partnered with</span>
         </h2>
         <div className="mx-auto my-5 h-px max-w-sm bg-border [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
 
@@ -29,36 +29,31 @@ export default function ClientsSlider() {
 
 
 const logos = [
-//   {
-//     src: "https://svgl.app/library/nvidia-wordmark-light.svg",
-//     alt: "Nvidia Logo",
-//   },
+
   {
-    src: "https://svgl.app/library/supabase_wordmark_light.svg",
+    src: "/clients/21casino.png",
     alt: "Supabase Logo",
+ 
   },
   {
-    src: "https://svgl.app/library/openai_wordmark_light.svg",
+    src: "/clients/bigflexlifescience.jpg",
     alt: "OpenAI Logo",
+  
   },
   {
-    src: "https://svgl.app/library/turso-wordmark-light.svg",
-    alt: "Turso Logo",
+    src: "/clients/logicscloud.png",
+    alt: "Turso Logo",  
+   
   },
   {
-    src: "https://svgl.app/library/vercel_wordmark.svg",
+    src: "/clients/equitas_small_finance.jpeg",
     alt: "Vercel Logo",
+   
   },
   {
-    src: "https://svgl.app/library/github_wordmark_light.svg",
-    alt: "GitHub Logo",
+    src: "/clients/niyox.png",
+    alt: "Niox Logo",
+   
   },
-  {
-    src: "https://svgl.app/library/claude-ai-wordmark-icon_light.svg",
-    alt: "Claude AI Logo",
-  },
-  {
-    src: "https://svgl.app/library/clerk-wordmark-light.svg",
-    alt: "Clerk Logo",
-  },
+ 
 ];

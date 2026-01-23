@@ -3,12 +3,14 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { DatabaseIcon, ShieldCheckIcon, UserPlus2Icon, Waypoints, WaypointsIcon } from "lucide-react";
+import { useMediaQuery } from "react-responsive";
 
 export default function FeatureStrategyOne() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const heroRef = useRef<HTMLDivElement>(null);
     const floatAnimationRef = useRef<number | undefined>(undefined);
     const parallaxY = useMotionValue(0);
+    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const smoothParallaxY = useSpring(parallaxY, {
     stiffness: 50,
     damping: 30,
@@ -61,14 +63,14 @@ export default function FeatureStrategyOne() {
     className="text-center md:text-left"
   >
     
-      <div className="max-w-7xl mx-auto px-6 py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div className=" pt-24 md:pt-48 xl:pt-60 pb-8 md:pb-10 lg:pb-16 xl:pb-24 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 lg:gap-20 items-center">
 
  {/* left – CONTENT */}
- <div className="space-y-6 ">
+ <div className="space-y-6 text-left ">
            
 
-            <h3 className="text-4xl font-bold text-foreground">
+            <h3 className="text-3xl md:text-4xl  font-bold text-foreground">
             Strategic Integrated Solutions
 
                         </h3>
@@ -103,13 +105,9 @@ export default function FeatureStrategyOne() {
           <div className="relative">
 
             {/* soft background glow */}
-            <motion.div
-          // animate={{
-          //   x: -mousePosition.x,
-          //   y: -mousePosition.y,
-          // }}
-          transition={{ type: 'spring', stiffness: 25, damping: 35, mass: 1.5 }}
-          className="absolute -top-30 left-0 w-140 h-110 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-80 z-10"
+            <div
+        
+          className="absolute -top-10 left-0 md:-top-0 md:left-0 lg:-top-10 lg:left-0  w-100 h-70  lg:w-140 lg:h-110  bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-80 z-10"
           style={{
             borderRadius: '20%',
             transformOrigin: 'center',
@@ -117,23 +115,21 @@ export default function FeatureStrategyOne() {
           }}
         />
 
-<motion.div
-          // animate={{
-          //   x: -mousePosition.x,
-          //   y: -mousePosition.y,
-          // }}
-          transition={{ type: 'spring', stiffness: 25, damping: 35, mass: 1.5 }}
-          className="absolute -bottom-30 left-32   w-70 h-70 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-70 z-10"
+<div
+         
+          className="absolute -bottom-10 left-32 md:-bottom-10 md:left-0 lg:-bottom-20 lg:left-32   w-70 h-70  bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-70 z-10"
           style={{
             borderRadius: '20%',
             transformOrigin: 'center',
             background: 'radial-gradient(circle, rgba(187, 29, 255, 0.4) 0%, rgba(187, 29, 255, 0.25) 30%, rgba(187, 29, 255, 0.15) 60%, rgba(187, 29, 255, 0.05) 85%, transparent 100%)',
           }}
         />
+
+
             {/* main card */}
             <div className="relative flex  items-center">
-            <div className="relative left-0 -top-0 z-9 bg-primary-dark/10 rounded-xl shadow-soft   h-50 w-50 shadow-xl   w-full "/>
-          <div className="absolute top-0 left-0 z-10 w-full h-full">
+            <div className="relative left-0 -top-0 z-9 bg-primary-dark/10 rounded-xl shadow-soft   h-50 w-50 shadow-xl   w-full  hidden md:block "/>
+          <div className="block md:absolute flex top-0 left-0 xl:left-10 z-10 w-full h-full mt-8 md:max-w-[40vw] md:max-h-[200px] lg:max-w-full lg:max-h-full   ">
 
             <Image
       src="/home-banner2.webp"
@@ -146,9 +142,9 @@ export default function FeatureStrategyOne() {
    
  {/* floating dashboard images */}
             <motion.div 
-                className="relative absolute top-0 right-100  z-10 flex items-end justify-center"
+                className="relative absolute top-0 right-100  z-10 flex items-end justify-center hidden md:block"
                 style={{
-                  y: smoothParallaxY,
+                  y: isMobile ? 0 : smoothParallaxY,
                 }}
               >
             <div className="relative w-full max-w-sm">
@@ -157,8 +153,8 @@ export default function FeatureStrategyOne() {
              
 
              {/* Card 3 */}
-             <div className="absolute right-10 top-16 rounded-2xl bg-white p-10 shadow-lg w-48">
-               <p className="text-3xl font-semibold text-accent">+10%</p>
+             <div className="absolute -right-50 top-50 lg:right-0 lg:top-40 xl:right-10 xl:top-16 rounded-2xl bg-white p-5 xl:p-10 shadow-lg w-32  xl:w-48 ">
+               <p className="lg:text-3xl text-xl font-semibold text-accent">+10%</p>
                <p className="mt-1 text-sm text-slate-600">Increased ROI</p>
              </div>
 

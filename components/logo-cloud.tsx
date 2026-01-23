@@ -1,5 +1,7 @@
 import { InfiniteSlider } from "@/components/infini-slider";
 import { cn } from "@/lib/utils";
+import { useMediaQuery } from "react-responsive";
+
 
 type Logo = {
   src: string;
@@ -13,6 +15,7 @@ type LogoCloudProps = React.ComponentProps<"div"> & {
 };
 
 export function LogoCloud({ className, logos, ...props }: LogoCloudProps) {
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   return (
     <div
       {...props}
@@ -21,11 +24,11 @@ export function LogoCloud({ className, logos, ...props }: LogoCloudProps) {
         className
       )}
     >
-      <InfiniteSlider gap={150} reverse duration={80} durationOnHover={25}>
+      <InfiniteSlider gap={isMobile ? 30 : 150} reverse duration={80} durationOnHover={25}>
         {logos.map((logo) => (
           <img
             alt={logo.alt}
-            className="pointer-events-none h-4 select-none md:h-5 dark:brightness-0 dark:invert"
+            className="pointer-events-none h-12 select-none  dark:brightness-0 dark:invert"
             height={logo.height || "auto"}
             key={`logo-${logo.alt}`}
             loading="lazy"

@@ -3,12 +3,14 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { DatabaseIcon, ShieldCheckIcon, UserPlus2Icon, Waypoints, WaypointsIcon } from "lucide-react";
+import { useMediaQuery } from "react-responsive";
 
 export default function FeatureStrategyTow() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const heroRef = useRef<HTMLDivElement>(null);
     const floatAnimationRef = useRef<number | undefined>(undefined);
     const parallaxY = useMotionValue(0);
+    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const smoothParallaxY = useSpring(parallaxY, {
     stiffness: 50,
     damping: 30,
@@ -61,20 +63,16 @@ export default function FeatureStrategyTow() {
     className="text-center md:text-left"
   >
     
-      <div className="max-w-7xl mx-auto px-6 py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div className=" py-8 md:py-10 lg:py-16 xl:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-20 items-center">
 
  {/* left – image */}
- <div className="relative">
+ <div className="relative order-2 md:order-1">
 
             {/* soft background glow */}
-            <motion.div
-          // animate={{
-          //   x: -mousePosition.x,
-          //   y: -mousePosition.y,
-          // }}
-          transition={{ type: 'spring', stiffness: 25, damping: 35, mass: 1.5 }}
-          className="absolute -top-50 left-0 w-140 h-110 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-80 z-10"
+            <div
+         
+          className="absolute top-0 left-0 md:-top-30 md:-left-20 lg:-top-30 lg:left-0 xl:-top-50 xl:left-0  w-100 h-70  xl:w-120 xl:h-90  bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-80 z-10"
           style={{
             borderRadius: '20%',
             transformOrigin: 'center',
@@ -82,13 +80,9 @@ export default function FeatureStrategyTow() {
           }}
         />
 
-<motion.div
-          // animate={{
-          //   x: -mousePosition.x,
-          //   y: -mousePosition.y,
-          // }}
-          transition={{ type: 'spring', stiffness: 25, damping: 35, mass: 1.5 }}
-          className="absolute -bottom-50 left-32   w-70 h-70 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-70 z-10"
+<div
+       
+          className="absolute -bottom-20 left-12 md:-bottom-40 md:left-0 lg:-bottom-30 lg:left-32 xl:-bottom-40 xl:left-32   w-70 h-70 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-70 z-10"
           style={{
             borderRadius: '20%',
             transformOrigin: 'center',
@@ -96,18 +90,18 @@ export default function FeatureStrategyTow() {
           }}
         />
             {/* main card */}
-            <div className="relative z-10 rounded-xl shadow-soft w-50 h-20 shadow-xl  p-8 ">
+            <div className="relative z-10 rounded-xl shadow-soft w-50 h-20 shadow-xl  p-8 hidden md:block "/>
 
           
 
             
-            </div>
+           
 
             {/* floating dashboard images */}
             <motion.div 
                 className="relative z-10 flex items-end justify-center"
                 style={{
-                  y: smoothParallaxY,
+                  y: isMobile ? 0 : smoothParallaxY,
                 }}
               >
             <Image
@@ -115,7 +109,7 @@ export default function FeatureStrategyTow() {
               alt="dashboard"
               width={200}
               height={400}
-              className="absolute  z-20 rounded-3xl shadow-soft "
+              className="block md:absolute mt-8  z-20 rounded-3xl shadow-soft "
             />
 
 </motion.div>
@@ -124,10 +118,10 @@ export default function FeatureStrategyTow() {
  
 
           {/* Right – content */}
-          <div className="space-y-6 ">
+          <div className="space-y-6 order-1 md:order-2 text-left  ">
            
 
-            <h3 className="text-4xl font-bold text-foreground">
+            <h3 className="text-3xl md:text-4xl font-bold text-foreground">
             Brand Strategy & Consultancy
 
                         </h3>
@@ -137,7 +131,7 @@ export default function FeatureStrategyTow() {
          </p>
 
            <div className="flex flex-row justify-between  items-start">
-           <ul className="space-y-4 pt-4">
+           <ul className="space-y-4 pt-4 text-start  ">
               {[
                 "Clear brand positioning and differentiation",
                 "Defined brand voice and messaging framework",

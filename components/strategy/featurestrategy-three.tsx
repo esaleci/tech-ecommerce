@@ -3,12 +3,14 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { DatabaseIcon, ShieldCheckIcon, UserPlus2Icon, Waypoints, WaypointsIcon } from "lucide-react";
+import { useMediaQuery } from "react-responsive";
 
 export default function FeatureStrategyThree() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const heroRef = useRef<HTMLDivElement>(null);
     const floatAnimationRef = useRef<number | undefined>(undefined);
     const parallaxY = useMotionValue(0);
+    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const smoothParallaxY = useSpring(parallaxY, {
     stiffness: 50,
     damping: 30,
@@ -61,14 +63,14 @@ export default function FeatureStrategyThree() {
     className="text-center md:text-left"
   >
     
-      <div className="max-w-7xl mx-auto px-6 py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div className="py-8 md:py-10 lg:py-16 xl:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-20 items-center">
 
  {/* left – CONTENT */}
- <div className="space-y-6 ">
-           
+ <div className="space-y-6 text-left">
 
-            <h3 className="text-4xl font-bold text-foreground">
+
+            <h3 className="text-3xl md:text-4xl font-bold text-foreground">
             Media Strategy & Consultancy
 
                         </h3>
@@ -107,7 +109,7 @@ export default function FeatureStrategyThree() {
 
 <div
        
-          className="absolute -bottom-50 left-32   w-100 h-100 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-70 z-10"
+          className="absolute -bottom-30 left-10 md:-bottom-50 md:left-0 lg:-bottom-50 lg:left-32   w-70 h-70 xl:w-90 xl:h-90  bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-60 z-10"
           style={{
             borderRadius: '20%',
             transformOrigin: 'center',
@@ -124,31 +126,31 @@ export default function FeatureStrategyThree() {
 
  {/* floating dashboard images */}
             <motion.div 
-                className="relative absolute top-0 right-100  z-10 flex items-end justify-center"
+                className="relative block md:absolute top-0 right-40 md:right-50 md:-top-20 lg:right-60  xl:right-70 xl:-top-20  z-10 flex items-end justify-center"
                 style={{
-                  y: smoothParallaxY,
+                  y: isMobile ? 0 : smoothParallaxY,
                 }}
               >
             <div className="relative w-full max-w-sm">
               
 
               {/* Card 1 */}
-              <div className="absolute left-0 top-0 rounded-2xl bg-white p-10 shadow-lg w-48">
-               <p className="text-3xl font-semibold text-indigo-600">+10%</p>
+              <div className="absolute left-0 top-0 rounded-2xl bg-white p-5 lg:p-10 shadow-lg w-32 lg:w-48">
+               <p className="lg:text-3xl text-xl font-semibold text-indigo-600">+10%</p>
                <p className="mt-1 text-sm text-slate-600">Increased ROI</p>
              </div>
 
              {/* Card 2 */}
-             <div className="absolute left-0 top-46 rounded-2xl bg-white p-10 shadow-lg w-48">
-               <p className="text-3xl font-semibold text-indigo-600">+50%</p>
+             <div className="absolute left-0 top-46 rounded-2xl bg-white p-5  lg:p-10 shadow-lg w-32 lg:w-48">
+               <p className="lg:text-3xl text-xl font-semibold text-indigo-600">+50%</p>
                <p className="mt-1 text-sm text-slate-600">Optimized Budget Allocation</p>
              </div>
 
             
 
              {/* Card 3 */}
-             <div className="absolute right-10 top-16 rounded-2xl bg-white p-10 shadow-lg w-48">
-               <p className="text-3xl font-semibold text-accent">+100%</p>
+             <div className="absolute right-10 top-16 rounded-2xl bg-white p-5 lg:p-10 shadow-lg lg:w-48 w-32">
+               <p className="lg:text-3xl text-xl font-semibold text-accent">+100%</p>
                <p className="mt-1 text-sm text-slate-600">Performance Tracking</p>
              </div>
 
