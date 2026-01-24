@@ -3,6 +3,7 @@ import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/footer";
+import Navbar2 from "@/components/Navbar2";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -73,11 +74,15 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${outfit.variable} antialiased`}
       >
+          <Navbar2 />
           <main className="relative overflow-hidden 2xl:overflow-visible w-full ">
-            <div className="px-4 xl:px-6 max-w-7xl mx-auto ">
-          <Navbar />
-        {children}
-        <Footer />
+            <div className="relative px-4 xl:px-6 max-w-7xl mx-auto ">
+          <div className=" relative z-10 bg-white ">
+            <div className="pt-24">
+              {children}
+            </div>
+            <Footer />
+          </div>
         </div>
         </main>
       </body>

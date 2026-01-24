@@ -63,7 +63,7 @@ export default function HeroOutsource() {
   return (
     <div id="creative-content"
       ref={heroRef}
-      className="relative  bg-white   py-5 ">
+      className="relative  bg-white   py-4 md:py-8 lg:py-12">
 
 
 

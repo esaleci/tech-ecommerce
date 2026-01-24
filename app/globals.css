@@ -28,7 +28,7 @@
 /* =========================
    Tailwind Theme Bridge
 ========================= */
-@theme {
+@theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
@@ -56,6 +56,9 @@ html {
 }
 
 body {
+  padding: 0;
+  margin: 0;
+  /* background-color: #000; */
   background: var(--background);
   color: var(--foreground);
   /* font-family: var(--font-inter), -apple-system, BlinkMacSystemFont,
@@ -69,7 +72,7 @@ body {
 /* =========================
    Gradients
 ========================= */
-.bg-brand-gradient {
+/* .bg-brand-gradient {
   background: linear-gradient(
     135deg,
     var(--primary) 0%,
@@ -90,12 +93,12 @@ body {
 .animate-gradient {
   animation: gradient 4s ease infinite;
   background-size: 200% auto;
-}
+} */
 
 /* =========================
    Glow Effects
 ========================= */
-.glow-primary {
+/* .glow-primary {
   box-shadow: 0 0 80px var(--glow-primary);
 }
 
@@ -106,7 +109,7 @@ body {
     rgba(124,108,255,0.15) 40%,
     transparent 70%
   );
-}
+} */
 
 /* =========================
    Navigation (Home hover)

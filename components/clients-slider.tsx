@@ -3,15 +3,8 @@ import { LogoCloud } from "./logo-cloud";
 
 export default function ClientsSlider() {
   return (
-    <div className="w-full place-content-center py-5 md:py-20">
-    <div
-        aria-hidden="true"
-        className={cn(
-          "-z-10 -top-1/2 -translate-x-1/2 pointer-events-none absolute left-1/2 h-[120vmin] w-[120vmin] rounded-b-full",
-          "bg-[radial-gradient(ellipse_at_center,--theme(--color-foreground/.1),transparent_50%)]",
-          "blur-[30px]"
-        )}
-      />
+    <div className="    w-full place-content-center py-5 md:py-20">
+   
 
       <section className="relative mx-auto max-w-7xl">
         <h2 className="mb-5 text-center font-medium text-foreground text-xl tracking-tight md:text-3xl">
