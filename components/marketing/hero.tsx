@@ -116,7 +116,7 @@ export default function HeroMarketing() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-7xl font-bold mb-4 md:mb-6 text-foreground  lg:leading-20"
+            className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl 4xl:text-7xl font-bold mb-4 md:mb-6 text-foreground  lg:leading-20"
           >
             Marketing that drives growth
 
@@ -127,7 +127,7 @@ export default function HeroMarketing() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="text-base sm:text-lg md:text-xl text-foreground/70 mb-3 md:mb-4  leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-foreground/95 mb-3 md:mb-4  "
           >
             We design data-driven digital marketing solutions focused on increasing online visibility, reaching the right audience, and turning engagement into measurable business results. By combining strategic planning, performance optimization, and creative execution, we help brands grow traffic, acquire customers, and scale their digital presence effectively.
           </motion.p>
@@ -178,12 +178,12 @@ export default function HeroMarketing() {
               className="relative flex justify-center items-center col-span-2 w-full"
             >
 
-              <div className="z-10 backdrop-blur-md rounded-2xl overflow-hidden shadow-soft w-full xl:w-[1200px] xl:h-[500px]">
+              <div className="z-10 backdrop-blur-md rounded-2xl overflow-hidden shadow-soft w-full md:h-[250px]  lg:h-[350px]  xl:h-[400px] 4xl:w-[1200px] 4xl:h-[500px]">
                 <Image src="/marketing-banner.webp"
-                  alt="Creative and content strategy services by GrowthOptics"
+                  alt="Digital marketing campaigns and performance analytics dashboard showing growth metrics"
                   width={1200} height={500} priority
                   sizes="(max-width: 1200px) 100vw, 1200px"
-                  className="object-cover rounded-2xl max-w-full  "
+                  className="object-cover rounded-2xl xl:max-w-6xl 2xl:max-w-7xl "
                    />
               </div>
             </motion.div>

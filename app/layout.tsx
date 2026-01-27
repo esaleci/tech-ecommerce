@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+
 import Footer from "@/components/footer";
-import Navbar2 from "@/components/Navbar2";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -18,38 +18,21 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "GrowthOptics | Digital Marketing, Creative & Tech Solutions for Growth",
-  description: "Automate customer support, operations, and marketing workflows with AI. We help $3M-$50M e-commerce brands scale without adding headcount. Reduce costs by 75%, increase ROI 2x, and achieve 99.9% uptime.",
-  keywords: [
-    "e-commerce automation",
-    "AI automation",
-    "customer support automation",
-    "marketing automation",
-    "operations automation",
-    "e-commerce AI",
-    "business automation",
-    "workflow automation",
-    "scale e-commerce",
-    "reduce headcount",
-    "AI chatbots",
-    "e-commerce solutions",
-    "automation platform",
-    "e-commerce operations",
-    "AI-powered support"
-  ],
-  authors: [{ name: "Artificial Projects" }],
-  creator: "Artificial Projects",
-  publisher: "Artificial Projects",
+  title: "GrowthOptics | Digital Marketing, Creative & Tech Solutions",
+  description: "We build flexible, performance-driven solutions that help brands grow, connect, and scale. From content strategy to digital marketing and tech solutions, we deliver results that matter.",
+  authors: [{ name: "GrowthOptics" }],
+  creator: "GrowthOptics",
+  publisher: "GrowthOptics",
   openGraph: {
-    title: "Artificial Projects | AI-Powered E-commerce Automation Solutions",
-    description: "Automate customer support, operations, and marketing workflows with AI. Scale your e-commerce business without adding headcount.",
+    title: "GrowthOptics | Digital Marketing, Creative & Tech Solutions",
+    description: "Smart solutions built to grow. We help brands connect with audiences, create compelling content, and build reliable digital systems that drive business growth.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Artificial Projects | AI-Powered E-commerce Automation",
-    description: "Scale your e-commerce operations with AI automation. Reduce costs, increase ROI, and grow without adding headcount.",
+    title: "GrowthOptics | Digital Marketing, Creative & Tech Solutions",
+    description: "Smart solutions built to grow. Performance-driven digital marketing, content strategy, and tech solutions for modern brands.",
   },
   robots: {
     index: true,
@@ -74,9 +57,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${outfit.variable} antialiased`}
       >
-          <Navbar2 />
+          <Navbar />
           <main className="relative overflow-hidden 2xl:overflow-visible w-full ">
-            <div className="relative px-4 xl:px-6 max-w-7xl mx-auto ">
+            <div className="relative px-4 xl:px-6 xl:max-w-6xl  2xl:max-w-7xl mx-auto ">
           <div className=" relative z-10 bg-white ">
             <div className="pt-24">
               {children}

@@ -93,7 +93,7 @@ background: 'radial-gradient(circle, rgba(187, 29, 255, 0.4) 0%, rgba(187, 29, 2
 
 <Image
   src="/marketing-banner.webp"
-  alt="tech solutions website,"
+  alt="E-commerce and PHP development solutions showcasing online store interface"
   width={350}
   height={200}
   className="rounded-3xl shadow-soft object-cover"

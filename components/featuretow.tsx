@@ -137,8 +137,7 @@ export default function FeatureTow() {
               >
                 <Image
                   src="/income-png.png"
-                  alt="dashboard"
-
+                  alt="Digital marketing campaign performance dashboard showing growth metrics and ROI analytics"
                   width={200}
                   height={400}
                   className="md:absolute block   z-20 rounded-3xl shadow-soft "

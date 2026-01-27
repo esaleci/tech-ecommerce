@@ -68,7 +68,7 @@ export default function CTA() {
         <p className="text-muted max-w-sm text-center md:text-left">From strategy to execution, we build solutions that help your business move faster and grow stronger.</p>
         <Link href="/contact" className="bg-accent text-white py-3 px-6 rounded-lg 
         font-medium transition-all duration-500 hover:bg-primary-dark transition flex items-center gap-2 justify-center relative">
-            Touch with us
+            Get in touch
             <ChevronRightCircleIcon className="w-6 h-6 " />
             <ChevronRightCircleIcon className="w-6 h-6 animate-ping opacity-50 absolute top-3 right-6" />
         </Link>

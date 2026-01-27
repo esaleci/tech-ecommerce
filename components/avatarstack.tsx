@@ -19,7 +19,7 @@ export default function AvatarStack() {
           >
             <Image
               src={avatar.src}
-              alt="avatar"
+              alt={`Team member ${i + 1} profile picture`}
               fill
               className="object-cover"
             />

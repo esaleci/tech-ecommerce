@@ -5,11 +5,10 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 
 import { useEffect, useRef, useState } from "react";
 import ClientsSlider from "./clients-slider";
-import { ProgressBadge } from "./progressbadge";
 import { useMediaQuery } from "react-responsive";
 
 
-export default function Hero3() {
+export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [floatOffset, setFloatOffset] = useState(0);
   const floatAnimationRef = useRef<number | undefined>(undefined);
@@ -81,7 +80,7 @@ export default function Hero3() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 text-foreground leading-tight"
+            className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl 4xl:text-7xl font-bold mb-4 md:mb-6 text-foreground leading-tight"
           >
 
             Smart Solutions
@@ -96,7 +95,7 @@ export default function Hero3() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="text-base sm:text-lg md:text-xl text-foreground/70 mb-3 md:mb-4 max-w-xl leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-foreground/95 mb-3 md:mb-4 max-w-xl "
           >
             From insight to execution, we build flexible, performance-driven solutions that help brands grow, connect, and scale.
           </motion.p>
@@ -153,7 +152,7 @@ export default function Hero3() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.4 }}
-              className="text-foreground/70 "
+              className="text-foreground/95 "
             >
 
               Trusted already by 1K+

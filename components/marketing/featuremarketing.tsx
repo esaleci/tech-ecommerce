@@ -141,7 +141,7 @@ export default function FeatureMarketing() {
               >
             <Image
               src="/income-png.png"
-              alt="dashboard"
+              alt="Digital marketing campaign performance metrics showing revenue growth and ROI analytics"
               width={200}
               height={400}
               className="block md:absolute    z-20 rounded-3xl shadow-soft "

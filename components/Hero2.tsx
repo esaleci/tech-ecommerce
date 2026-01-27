@@ -1,258 +1,360 @@
 "use client";
 
 import Image from "next/image";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-} from "framer-motion";
-import { useRef, useState } from "react";
-import ClientsSlider from "./clients-slider";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
-export default function HeroSection() {
-  const ref = useRef<HTMLDivElement>(null);
+import { useEffect, useRef, useState } from "react";
+import ClientsSlider from "./clients-slider";
+import { useMediaQuery } from "react-responsive";
+
+
+export default function Hero2() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
+  const [floatOffset, setFloatOffset] = useState(0);
+  const floatAnimationRef = useRef<number | undefined>(undefined);
+  const parallaxY = useMotionValue(0);
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  const isDesktop = useMediaQuery({ minWidth: 768 });
+
+  const smoothParallaxY = useSpring(parallaxY, {
+    stiffness: 50,
+    damping: 30,
+    mass: 0.5,
   });
 
-  // very subtle movement
-  const yMain = useSpring(
-    useTransform(scrollYProgress, [0, 1], [-12, 12]),
-    { stiffness: 60, damping: 22 }
-  );
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (heroRef.current) {
+        const rect = heroRef.current.getBoundingClientRect();
+        setMousePosition({
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top,
+        });
+      }
+    };
 
-  const yTop = useSpring(
-    useTransform(scrollYProgress, [0, 1], [-8, 8]),
-    { stiffness: 55, damping: 20 }
-  );
+    const handleScroll = () => {
+      const scrollValue = window.scrollY * 0.08;
+      parallaxY.set(scrollValue);
+    };
 
-  const yBottom = useSpring(
-    useTransform(scrollYProgress, [0, 1], [-6, 6]),
-    { stiffness: 50, damping: 26 }
-  );
+    // Smooth floating animation
+    const animateFloat = () => {
+      const time = Date.now() * 0.001;
+      setFloatOffset(Math.sin(time) * 10);
+      floatAnimationRef.current = requestAnimationFrame(animateFloat);
+    };
+
+    const hero = heroRef.current;
+    if (hero) {
+      hero.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("scroll", handleScroll, { passive: true });
+      floatAnimationRef.current = requestAnimationFrame(animateFloat);
+      return () => {
+        hero.removeEventListener("mousemove", handleMouseMove);
+        window.removeEventListener("scroll", handleScroll);
+        if (floatAnimationRef.current) {
+          cancelAnimationFrame(floatAnimationRef.current);
+        }
+      };
+    }
+  }, [parallaxY]);
 
   return (
-    <motion.section
-      ref={ref}
-      className="relative min-h-screen overflow-hidden bg-white py-20"
-      initial={{ opacity: 0, y: 14 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <div className="max-w-7xl mx-auto px-6 py-28 grid grid-cols-1 lg:grid-cols-3 gap-20 items-center">
+    <div id="home"
+      ref={heroRef}
+      className="relative  bg-white  w-full max-screen ">
+
+      {/* Content */}
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 xl:gap-20 items-center w-full py-4 md:py-8 lg:py-12 xl:py-28">
+
+
+
+
 
         {/* LEFT */}
-        <div className="space-y-8 col-span-2">
-          <h1 className="text-[48px] leading-tight font-semibold text-foreground">
-            Inspire action
+        <div className="space-y-8 xl:col-span-2">
+          {/* Main Heading */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl 4xl:text-7xl font-bold mb-4 md:mb-6 text-foreground leading-tight"
+          >
+
+            Smart Solutions
+
             <br />
-            with Tech W
-          </h1>
+            Built to Grow
 
-          <p className="text-muted max-w-md">
-            Our comprehensive suite of tools is designed to bring teams together,
-            streamline workflows, and drive success.
-          </p>
+          </motion.h1>
 
-          {/* avatars – unchanged */}
-          <div className="flex items-center gap-4 text-sm text-foreground">
-            <div className="flex -space-x-2">
-            <Image
-              src="https://cdn.prod.website-files.com/66e4045e3214e190ccaad452/66e4045e3214e190ccaad4c7_avtar-01.avif"
-              alt="avtar-image"
-              width={40}
-              height={40}
-              className="rounded-full border border-white"
-            />
-            <Image
-              src="https://cdn.prod.website-files.com/66e4045e3214e190ccaad452/66e4045e3214e190ccaad4a3_avtar-02.avif"
-              alt="avtar-image"
-              width={40}
-              height={40}
-              className="rounded-full border border-white"
-            />
-            <Image
-              src="https://cdn.prod.website-files.com/66e4045e3214e190ccaad452/66e4045e3214e190ccaad4a4_avtar-03.avif"
-              alt="avtar-image"
-              width={40}
-              height={40}
-              className="rounded-full border border-white"
-            />
-            <Image
-              src="https://cdn.prod.website-files.com/66e4045e3214e190ccaad452/66e4045e3214e190ccaad4a7_avtar-04.avif"
-              alt="avtar-image"
-              width={40}
-              height={40}
-              className="rounded-full border border-white"
-            />
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="text-base sm:text-lg md:text-xl text-foreground/95 mb-3 md:mb-4 max-w-xl "
+          >
+            From insight to execution, we build flexible, performance-driven solutions that help brands grow, connect, and scale.
+          </motion.p>
+
+
+          {/* CTA Buttons */}
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+            className="flex items-center gap-4 text-sm text-foreground"
+          >
+            <div className="flex -space-x-2 ">
+              <div className="h-10 w-10 rounded-full  overflow-hidden flex items-center justify-center border border-white">
+
+                <Image
+                  src="/avatars/avatar2.webp"
+                  alt="Team member profile"
+                  width={40}
+                  height={40}
+                  className="rounded-full  object-cover"
+                />
+              </div>
+              <div className="h-10 w-10 rounded-full  overflow-hidden flex items-center justify-center border border-white">
+                <Image
+                  src="/avatars/avatar3.webp"
+                  alt="Team member profile"
+                  width={40}
+                  height={40}
+                  className="rounded-full  object-cover"
+                />
+              </div>
+              <div className="h-10 w-10 rounded-full  overflow-hidden flex items-center justify-center border border-white">
+                <Image
+                  src="/avatars/avatar4.webp"
+                  alt="Team member profile"
+                  width={40}
+                  height={40}
+                  className="rounded-full  object-cover"
+                />
+              </div>
+              <div className="h-10 w-10 rounded-full  overflow-hidden flex items-center justify-center border border-white">
+                <Image
+                  src="/avatars/avatar5.webp"
+                  alt="Team member profile"
+                  width={40}
+                  height={40}
+                  className="rounded-full  object-cover"
+                />
+              </div>
             </div>
-            Trusted already by 1K+
-          </div>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.4 }}
+              className="text-foreground/95 "
+            >
+
+              Trusted already by 1K+
+
+
+            </motion.p>
+          </motion.div>
+
         </div>
 
-
-         {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden ">
-        <motion.div
-          animate={{
-            x: mousePosition.x * 0.50,
-            // y: mousePosition.y * 0.25,
-            scaleX: [
-              1,
-              1.80,
-              1.5,
-              1.30,
-              1,
-            ],
-            // scaleY: [
-            //   1,
-            //   0.95,
-            //   1.08,
-            //   0.97,
-            //   1,
-            // ],
-            borderRadius: [
-              '50% 50% 50% 50%',
-              '52% 48% 50% 50%',
-              '50% 50% 48% 52%',
-              '48% 52% 50% 50%',
-              '50% 50% 50% 50%',
-            ],
-          }}
-          transition={{
-            borderRadius: {
-              duration: 18,
-              repeat: Infinity,
-              ease: [0.4, 0, 0.6, 1],
-            },
-            scaleX: {
-              duration: 16,
-              repeat: Infinity,
-              ease: [0.4, 0, 0.6, 1],
-            },
-            // scaleY: {
-            //   duration: 16,
-            //   repeat: Infinity,
-            //   ease: [0.4, 0, 0.6, 1],
-            // },
-            x: { type: 'spring', stiffness: 8, damping: 70, mass: 4 },
-            // y: { type: 'spring', stiffness: 8, damping: 70, mass: 4 },
-          }}
-          className="absolute top-32 right-32 md:top-40 md:right-40 lg:top-24 lg:right-130 w-[600px] h-[400px] sm:w-[700px] sm:h-[700px] md:w-[900px] md:h-[600px] mix-blend-multiply filter blur-3xl z-2"
-          style={{
-            borderRadius: '50%',
-            transformOrigin: 'center',
-            background: 'radial-gradient(circle, rgba(0, 121, 242, 0.4) 0%, rgba(0, 121, 242, 0.25) 30%, rgba(0, 121, 242, 0.15) 60%, rgba(0, 121, 242, 0.05) 85%, transparent 100%)',
-          }}
-        />
-        <motion.div
-          animate={{
-            x: -mousePosition.x,
-            y: -mousePosition.y,
-          }}
-          transition={{ type: 'spring', stiffness: 25, damping: 35, mass: 1.5 }}
-          className="absolute top-52 right-32 md:top-52 md:right-40 lg:top-24 lg:right-130 w-72 h-72 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-50 z-10"
-          style={{
-            borderRadius: '20%',
-            transformOrigin: 'center',
-            background: 'radial-gradient(circle,  rgba(0, 121, 242, 0.15) 60%, rgba(248, 41, 220, 0.34) 85%, transparent 100%)',
-          }}
-        />
-          <motion.div
-          animate={{
-            x: -mousePosition.x,
-            y: -mousePosition.y,
-          }}
-          transition={{ type: 'spring', stiffness: 25, damping: 35, mass: 1.5 }}
-          className="absolute top-52 right-32 md:top-52 md:right-40 lg:top-64 lg:right-180 filter blur-3xl w-150 h-150 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-50 z-10"
-          style={{
-            borderRadius: '20%',
-            transformOrigin: 'center',
-            background: 'radial-gradient(circle,  rgba(0, 121, 242, 0.15) 0%, rgba(250, 97, 229, 0.55) 15%, transparent 100%)',
-          }}
-        />
-      </div>
 
         {/* RIGHT */}
-        <div className="relative flex justify-center items-center">
+        <div className="relative flex justify-start w-full items-center">
 
-          {/* background glow – static */}
-          <div className="absolute w-[520px] h-[520px] rounded-full
-            bg-[radial-gradient(circle,_rgba(124,108,255,0.25)_0%,_rgba(232,121,249,0.15)_45%,_transparent_70%)]"
-          />
-
-          {/* glass frames – static */}
-          <div className="absolute w-[520px] h-[420px] rounded-3xl bg-primary/10 backdrop-blur-md" />
-          <div className="absolute w-[460px] h-[360px] rounded-3xl bg-secondary/10 translate-x-12 translate-y-16" />
-
-          {/* TOP CARD – animated */}
+          {/*  Background Elements */}
           <motion.div
-            style={{ y: yTop }}
-            className="absolute top-10 -left-50 z-20 bg-white rounded-2xl shadow-soft p-5 w-[160px]"
-          >
-            <Image
-            src="https://cdn.prod.website-files.com/66e4045e3214e190ccaad452/66e4045e3214e190ccaad4c9_hero-dashboard-01.svg"
-            alt="dashboard"
-            width={200}
-            height={200}
-            priority
-            className="transition-transform duration-700 will-change-transform"
-          />
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.8,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="absolute inset-0  ">
+            <div
+              className="absolute top-10 left-0  md:top-0 md:left-0 lg:top-0 lg:-left-20   xl:-top-20 xl:-left-80    w-full h-full md:w-[600px] md:h-[400px] lg:w-[700px] lg:h-[400px] xl:w-[900px] xl:h-[500px] mix-blend-multiply filter blur-3xl z-2"
+              style={{
+                borderRadius: '50%',
+                transformOrigin: 'center',
+                background: 'radial-gradient(circle, rgba(0, 121, 242, 0.4) 0%, rgba(0, 121, 242, 0.25) 30%, rgba(0, 121, 242, 0.15) 60%, rgba(0, 121, 242, 0.05) 85%, transparent 100%)',
+              }}
+            />
+
+
+            <div
+              className="absolute top-40 -left-10 md:top-10 md:left-20 lg:top-5 lg:left-0 xl:top-20   filter blur-3xl w-100 h-100 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-50 z-10"
+              style={{
+                borderRadius: '20%',
+                transformOrigin: 'center',
+                background: 'radial-gradient(circle,  rgba(0, 121, 242, 0.15) 0%, rgba(250, 97, 229, 0.55) 15%, transparent 100%)',
+              }}
+            />
           </motion.div>
 
-          {/* MAIN IMAGE – animated */}
+
+
+
+
+          {/* Main Images Section */}
           <motion.div
-            style={{ y: yMain }}
-            className="relative z-10 rounded-3xl overflow-hidden shadow-soft"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.8,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="relative  flex flex-col gap-8 xl:gap-0 justify-start xl:justify-center items-start xl:items-center w-full"
           >
-            {/* <Image
-              src="/meeting.jpg"
-              alt="Meeting"
-              width={420}
-              height={300}
-              className="object-cover"
-              priority
-            /> */}
-            <div className="bg-white backdrop-blur-md rounded-2xl top-10 overflow-hidden shadow-soft pl-4 pt-4 ">
-              <Image src="https://cdn.prod.website-files.com/66e4045e3214e190ccaad452/66e4045e3214e190ccaad5b1_hero-image-one.avif" 
-              loading="eager" alt="image" className="object-cover rounded-3xl" 
-              width={370} height={300} />
+
+            <motion.div
+              className="relative z-10 flex items-end justify-center"
+              style={{
+                y: isDesktop ? smoothParallaxY : 0,
+              }}
+            >
+              <div
+
+                className=" block md:absolute md:top-0 md:-left-5 lg:top-0 lg:left-5 xl:top-20 xl:-left-88 z-20 bg-white rounded-2xl shadow-soft p-5 max-w-[160px] max-h-[160px] md:w-[140px] md:h-[140px] lg:w-[160px] lg:h-[160px] "
+              >
+
+
+                <svg
+                  viewBox="0 0 100 100"
+                  width="100%"
+                  height="100%"
+                  preserveAspectRatio="xMidYMid meet"
+                  aria-label="85 percent progress"
+                >
+                  {/* Outer ring */}
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="44"
+                    fill="none"
+                    stroke="#DDD6FE"
+                    strokeWidth="6"
+                  />
+
+                  {/* Inner ring background */}
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="34"
+                    fill="none"
+                    stroke="#F5F3FF"
+                    strokeWidth="6"
+                  />
+
+                  {/* Progress arc */}
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="34"
+                    fill="none"
+                    stroke="#FBCFE8"
+                    strokeWidth="6"
+                    strokeLinecap="round"
+                    strokeDasharray="213.6"
+                    strokeDashoffset="32"
+                    transform="rotate(-90 50 50)"
+                  />
+
+                  {/* Center circle */}
+                  <circle cx="50" cy="50" r="22" fill="#7C3AED" />
+
+                  {/* Percentage text */}
+                  <text
+                    x="50"
+                    y="50"
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fontSize="16"
+                    fontWeight="700"
+                    fill="#FFFFFF"
+                    fontFamily="system-ui, -apple-system, Segoe UI, Roboto"
+                  >
+                    85%
+                  </text>
+                </svg>
+                <p className="text-foreground/70 text-[9px] md:!text-[7px] lg:text-[9px] font-bold w-full">
+                  <span className="text-[10px] md:!text-[8px] lg:text-[10px]  font-bold text-accent">56%</span> Performance Progress
+                </p>
+
+              </div>
+
+
+            </motion.div>
+
+            <div className="absolute xl:block hidden w-[250px] h-[160px] -top-20 -left-10 rounded-3xl bg-primary/10 opacity-50 backdrop-blur-md" />
+            <div className="absolute xl:block hidden w-[250px] h-[160px] top-10 right-10 rounded-3xl bg-secondary/10 opacity-60 translate-x-12 translate-y-16" />
+
+            <div className="bg-white z-10 backdrop-blur-md rounded-2xl top-10 overflow-hidden shadow-soft pl-4 pt-4 self-center md:self-end xl:self-center">
+              <Image src="/home-banner.webp"
+                loading="eager" alt="Digital marketing and creative solutions dashboard showing performance metrics and growth analytics" priority 
+                sizes="(max-width: 580px) 100vw, 580px" 
+                className="object-cover rounded-2xl max-w-full  md:max-w-[25vw] xl:max-w-[27vw] desktop:max-w-[20vw] 2xl:max-w-[20vw] 3xl:max-w-[13vw] "
+                width={580} height={300} />
             </div>
 
+
+
+
+
+            <motion.div
+              className="relative z-10 flex items-end justify-center"
+              style={{
+                y: isDesktop ? smoothParallaxY : 0,
+              }}
+            >
+              <div
+
+                className="block md:absolute md:-bottom-15 md:left-5 lg:-bottom-15 lg:left-20 xl:-bottom-34 xl:-left-44 z-20 bg-white rounded-2xl shadow-soft p-4 w-[280px] flex items-center gap-3"
+              >
+
+                <div className="h-10 w-10 rounded-full  overflow-hidden flex items-center justify-center ">
+                  <Image
+                    src="/avatars/avatar1.webp"
+                    alt="Team member profile"
+                    width={40}
+                    height={40}
+                    className="rounded-full"
+                  />
+                </div>
+                <div>
+                  <div className="text-md font-bold text-foreground">
+                    Morning daily meeting
+                  </div>
+                  <div className="text-md text-muted">
+                    09:00 am – 11:00 am
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
           </motion.div>
 
-          {/* BOTTOM CARD – animated */}
-          <motion.div
-            style={{ y: yBottom }}
-            className="absolute -bottom-36 left-36 z-20 bg-white rounded-2xl shadow-soft p-4 w-[280px] flex items-center gap-3"
-          >
-            <Image
-                src="https://cdn.prod.website-files.com/66e4045e3214e190ccaad452/66e4045e3214e190ccaad5ac_avtar-05.avif"
-                alt="avtar-image"
-                width={40}
-                height={40}
-                className="rounded-full"
-              />
-            <div>
-              <div className="text-md font-bold text-foreground">
-                Morning daily meeting
-              </div>
-              <div className="text-md text-muted">
-                09:00 am – 11:00 am
-              </div>
-            </div>
-          </motion.div>
+
+
 
         </div>
-      </div>
 
 
-      <div>
-      <ClientsSlider />
       </div>
-    </motion.section>
+
+      {/*  client slider start from here */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.2, delay: 0.10 }}
+        className="w-full"
+      >
+        <ClientsSlider />
+      </motion.div>
+    </div>
   );
 }

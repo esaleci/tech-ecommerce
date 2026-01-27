@@ -101,7 +101,7 @@ export default function FeatureStrategyFour() {
                 <div className=" block md:absolute -top-30 left-20 z-20 rounded-3xl shadow-soft  overflow-hidden">
                   <Image
                     src="/tech-solutions-website.webp"
-                    alt="tech solutions website,"
+                    alt="Marketing communication strategy and consultancy services dashboard"
                     width={400}
                     height={150}
                     className="rounded-3xl shadow-soft "

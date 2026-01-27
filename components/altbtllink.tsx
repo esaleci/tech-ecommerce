@@ -18,7 +18,7 @@ export default function AltBTLLink() {
             <div className="relative flex h-56 mb-3 rounded-2xl overflow-hidden">
               <Image
                 src="/alt-btl-solutions-banner.webp"
-                alt="Unleashing productivity secrets"
+                alt="Performance-driven digital media campaigns and marketing solutions"
                 fill
                 className="object-cover"
                 priority
@@ -50,7 +50,7 @@ export default function AltBTLLink() {
             <div className="relative flex h-56 mb-3 rounded-2xl overflow-hidden">
               <Image
                 src="/marketing-banner.webp"
-                alt="Thriving in a tech-driven digital age"
+                alt="High-impact brand activations and experiential marketing campaigns"
                 fill
                 className="object-cover"
               />

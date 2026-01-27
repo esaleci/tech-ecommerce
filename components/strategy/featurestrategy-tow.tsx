@@ -106,7 +106,7 @@ export default function FeatureStrategyTow() {
               >
             <Image
               src="/income-png.png"
-              alt="dashboard"
+              alt="Business strategy and brand consultancy analytics showing growth metrics and market insights"
               width={200}
               height={400}
               className="block md:absolute mt-8  z-20 rounded-3xl shadow-soft "

@@ -9,13 +9,23 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 
+
 export default function Navbar() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -39,12 +49,16 @@ export default function Navbar() {
   }, [isMobileMenuOpen]);
 
   return (
-    <header className="w-full bg-white relative z-50">
-      <div className="w-full py-16 h-[72px] flex items-center justify-between relative z-50">
-        
+    <header className="w-full fixed top-0 left-0 right-0 z-[100] transition-all duration-500">
+       <div className={`transition-all duration-500 border-b ${
+        isScrolled ? "bg-white/50 backdrop-blur-md border-gray-100" : "bg-transparent border-gray-100"
+      }`}>
+      <div className={`w-full  mapx-4 xl:px-6 xl:max-w-6xl  2xl:max-w-7xl mx-auto  flex items-center justify-between relative z-50 px-5 transition-all duration-500 ${isScrolled ? "h-20" : "h-24"}`}>
+      
+
         {/* Logo */}
         <Link href="/">
-        <Image src="/logo11ed765d.png" alt="logo" width={150} height={100} />
+        <Image src="/logo11ed765d.png" alt="GrowthOptics logo - Digital marketing, creative and tech solutions" width={110} height={60} />
         {/* <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full bg-brand-gradient" />
           <span className="text-xl font-bold tracking-tight text-foreground">
@@ -66,7 +80,7 @@ export default function Navbar() {
               >
                 <Link
                   href={item.href}
-                  className={`text-lg font-bold transition-colors ${
+                  className={`text-md font-bold transition-colors ${
                     isActive
                       ? "text-accent"     
                       : "text-foreground hover:text-accent"
@@ -91,7 +105,7 @@ export default function Navbar() {
           >
             <Link
               href="/contact"
-              className="px-5 py-2 rounded-lg text-white text-lg font-medium bg-primary 
+              className="px-5 py-2 rounded-lg text-white text-md font-medium bg-primary 
               transition-all duration-500 hover:bg-accent"
             >
               Contact us
@@ -112,6 +126,7 @@ export default function Navbar() {
             )}
           </button>
         </div>
+      </div>
       </div>
 
         {/* Mobile Menu */}

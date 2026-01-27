@@ -31,7 +31,7 @@ export default function Footer() {
             /> */}
              <Image
               src="/logo11ed765d.png"
-              alt="Tech W"
+              alt="GrowthOptics logo - Digital marketing, creative and tech solutions"
               width={170}
               height={100}
             />

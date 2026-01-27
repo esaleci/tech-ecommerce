@@ -89,7 +89,7 @@ export default function FeatureOne() {
                 <div className="flex items-center gap-3">
                   <Image
                     src="/calendar-svg.svg"
-                    alt="icon"
+                    alt="Calendar icon for task management"
                     width={50}
                     height={50}
                   />
@@ -107,7 +107,7 @@ export default function FeatureOne() {
               <div className="relative z-10">
     <Image
       src="/home-banner2.webp"
-      alt="content,creativity,strategy,social,seo,growth,grow branding solutions"
+      alt="Content creation and strategy dashboard showing audience insights and performance metrics"
       width={520}
       height={360}
       className="object-cover rounded-xl"

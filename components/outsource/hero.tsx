@@ -84,7 +84,7 @@ export default function HeroOutsource() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-7xl font-bold mb-4 md:mb-6 text-foreground lg:leading-20"
+            className="tetext-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl 4xl:text-7xl font-bold mb-4 md:mb-6 text-foreground xl:leading-17"
           >
             Smart Outsourcing Solutions for Scalable Business Growth
 
@@ -95,7 +95,7 @@ export default function HeroOutsource() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="text-base sm:text-lg md:text-xl text-foreground/70 mb-3 md:mb-4  leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-foreground/95 mb-3 md:mb-4  "
           >
 
             We provide reliable outsourcing services that help businesses reduce costs, streamline operations, and scale efficiently with dedicated expert teams.
@@ -185,7 +185,7 @@ export default function HeroOutsource() {
               <div className="relative z-10 backdrop-blur-md rounded-2xl overflow-hidden shadow-soft w-[100vw] h-[150px] md:h-[250px] lg:h-[300px] xl:w-[1200px] xl:h-[400px]">
                 <Image
                   src="/global-business-services.avif"
-                  alt="Creative and content strategy services by GrowthOptics"
+                  alt="Global business outsourcing services showing scalable operations and dedicated expert teams"
                   fill
                   priority
                   sizes="(max-width: 1200px) 100vw, 1200px"

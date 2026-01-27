@@ -128,7 +128,7 @@ export default function HeroCreative() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-7xl lg:text-7xl font-bold mb-4 md:mb-6 text-foreground xl:leading-17 max-w-full lg:max-w-2/3"
+              className="text-4xltext-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl 4xl:text-7xl font-bold mb-4 md:mb-6 text-foreground xl:leading-17 max-w-full lg:max-w-2/3"
             >
           Where creativity meets content strategy
             </motion.h1>
@@ -138,7 +138,7 @@ export default function HeroCreative() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.2 }}
-              className="text-base sm:text-lg md:text-xl text-foreground/70 mb-3 md:mb-4 max-w-full md:max-w-2/3 xl:leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-foreground/95 mb-3 md:mb-4 max-w-full md:max-w-2/3 "
             >
                 Our creative and content solutions combine storytelling, design, and strategy to help brands connect, communicate, and grow with clarity and purpose
             </motion.p>
@@ -217,7 +217,7 @@ export default function HeroCreative() {
             
           <div className="bg-accent/10 z-10 backdrop-blur-md rounded-2xl top-10 overflow-hidden shadow-soft pl-4 pt-4 ">
               <Image src="/creative-banner.webp" 
-              alt="Creative and content strategy services by GrowthOptics"
+              alt="Creative content and design services showcasing brand storytelling and visual communication"
               className="object-cover rounded-2xl" 
               width={780} height={300}  priority
               sizes="(max-width: 768px) 100vw, 780px"/>

@@ -82,7 +82,7 @@ export default function   HeroStrategy() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="text-4xl  md:text-7xl lg:text-7xl font-bold mb-4 md:mb-6 text-foreground lg:leading-20"
+            className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl 4xl:text-7xl font-bold mb-4 md:mb-6 text-foreground xl:leading-17"
           >
             Strategy & Consultancy for Sustainable Business Growth
 
@@ -93,7 +93,7 @@ export default function   HeroStrategy() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="text-base sm:text-lg md:text-xl text-foreground/70 mb-3 md:mb-4  lg:leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-foreground/95 mb-3 md:mb-4  "
           >
 We help brands make smarter decisions through integrated strategy, market insight, and data-driven consulting. Our approach aligns business goals, brand positioning, and communication strategy to create long-term competitive advantage.
 </motion.p>
@@ -166,7 +166,7 @@ We help brands make smarter decisions through integrated strategy, market insigh
                 <span className="text-2xl font-bold text-foreground">From Insight to Execution</span>
             </div>
               <Image src="/strategy-bussiness-growth.webp" 
-              priority alt=""  className="object-cover rounded-2xl"
+              priority alt="Business strategy and consultancy services showing market insights and growth planning"  className="object-cover rounded-2xl"
               width={580} height={300} sizes="(max-width: 580px) 100vw, 580px" />
             </div>
             </motion.div>

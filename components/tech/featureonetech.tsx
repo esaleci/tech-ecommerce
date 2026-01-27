@@ -71,7 +71,7 @@ background: 'radial-gradient(circle, rgba(187, 29, 255, 0.4) 0%, rgba(187, 29, 2
   <div className="block lg:absolute -top-50 left-30 z-20 rounded-3xl shadow-soft  overflow-hidden">
 <Image
   src="/tech-solutions-website.webp"
-  alt="tech solutions website,"
+  alt="Web application development and technology solutions interface"
   width={400}
   height={150}
   className="rounded-3xl shadow-soft "
@@ -81,7 +81,7 @@ background: 'radial-gradient(circle, rgba(187, 29, 255, 0.4) 0%, rgba(187, 29, 2
 <div className="absolute top-0 left-0 rounded-xl shadow-soft w-40 h-40 shadow-xl  p-8 hidden md:block " />
 <Image
   src="/income-png.png"
-  alt="tech solutions website,"
+  alt="Technology solutions performance metrics showing system efficiency and growth analytics"
   width={200}
   height={400}
   className="absolute -bottom-40 left-20 z-20 rounded-3xl shadow-soft hidden lg:block "

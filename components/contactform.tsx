@@ -121,21 +121,13 @@ export default function ContactSection() {
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6 }}
-    className="text-center mb-16 relative w-full col-span-2"
+    className="text-center mb-5 md:mb-8 relative w-full col-span-2"
   >
 
 {/* BACKGROUND GLOW */}
 <div className="absolute inset-0">
                 {/* soft background glow */}
-                {/* <div
-          className="absolute top-0 -left-50 w-140 h-110 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-3xl opacity-80 z-10"
-          style={{
-            borderRadius: '20%',
-            transformOrigin: 'center',
-            background: 'radial-gradient(circle, rgba(0, 121, 242, 0.4) 0%, rgba(0, 121, 242, 0.25) 30%, rgba(0, 121, 242, 0.15) 60%, rgba(0, 121, 242, 0.05) 85%, transparent 100%)',
-          }}
-        /> */}
-
+           
 <div
           className="absolute bottom-0 -left-10   w-100 h-100 bg-[#00d4ff]/35 rounded-full mix-blend-multiply filter blur-2xl opacity-70 z-10"
           style={{
@@ -281,7 +273,7 @@ export default function ContactSection() {
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6 }}
-    className="text-center mb-16 flex flex-col items-center justify-start gap-5 w-full"
+    className="text-center mb-5 md:mb-8 flex flex-col items-center justify-start gap-5 w-full"
   >
         {/* INFO ROW */}
         <div className="flex flex-col items-center justify-start gap-5 w-full 
