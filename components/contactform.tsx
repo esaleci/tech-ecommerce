@@ -18,7 +18,32 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-// Zod validation schema
+// Phone optional in development (test), required in production (publish/deploy)
+const isProduction = process.env.NODE_ENV === 'production';
+const phoneSchema = isProduction
+  ? z
+      .string()
+      .min(1, "Phone number is required")
+      .regex(/^[\d\s\-\+\(\)]+$/, "Phone number can only contain digits, spaces, dashes, plus sign, and parentheses")
+      .refine((val) => {
+        const digitsOnly = val.replace(/\D/g, '');
+        return digitsOnly.length >= 7 && digitsOnly.length <= 15;
+      }, {
+        message: "Phone number must contain between 7 and 15 digits (international format)",
+      })
+  : z
+      .string()
+      .optional()
+      .refine(
+        (val) => {
+          if (!val || val.trim() === '') return true;
+          if (!/^[\d\s\-\+\(\)]+$/.test(val)) return false;
+          const digitsOnly = val.replace(/\D/g, '');
+          return digitsOnly.length >= 7 && digitsOnly.length <= 15;
+        },
+        { message: "Phone must be 7–15 digits when provided" }
+      );
+
 const contactFormSchema = z.object({
   firstName: z
     .string()
@@ -34,19 +59,7 @@ const contactFormSchema = z.object({
     .string()
     .min(1, "Email is required")
     .email("Invalid email format"),
-  phone: z
-    .string()
-    .min(1, "Phone number is required")
-    .regex(/^[\d\s\-\+\(\)]+$/, "Phone number can only contain digits, spaces, dashes, plus sign, and parentheses")
-    .refine((val) => {
-      // Remove all non-digit characters to count actual digits
-      const digitsOnly = val.replace(/\D/g, '');
-      // International phone numbers: ITU-T E.164 standard allows 7-15 digits
-      // This works for all countries (India: 10 digits, US: 10 digits, UK: 10-11 digits, etc.)
-      return digitsOnly.length >= 7 && digitsOnly.length <= 15;
-    }, {
-      message: "Phone number must contain between 7 and 15 digits (international format)",
-    }),
+  phone: phoneSchema,
   message: z
     .string()
     .min(1, "Message is required")
@@ -211,13 +224,13 @@ export default function ContactSection() {
                   )}
                 />
 
-                {/* Phone */}
+                {/* Phone – optional in dev (test), required in production (deploy) */}
                 <FormField
                   control={form.control}
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Phone</FormLabel>
+                      <FormLabel>Phone{!isProduction ? ' (optional)' : ''}</FormLabel>
                       <FormControl>
                         <Input type="tel" placeholder="+91 9960414939 or +1 (555) 123-4567" {...field} />
                       </FormControl>
@@ -300,18 +313,19 @@ export default function ContactSection() {
 
             <div className="flex justify-start gap-4">
               {[
-                {
-                  href: "https://www.facebook.com/",
-                  icon: <FacebookIcon className="text-white w-4 h-4" />,
-                },
-                {
-                  href: "https://www.instagram.com/",
-                  icon: <InstagramIcon className="text-white w-4 h-4" />,
-                },
-                {
-                  href: "https://www.twitter.com/",
-                  icon: <Linkedin className="text-white w-4 h-4" />,
-                },
+                // {
+                //   href: "https://www.facebook.com/",
+                //   icon: <FacebookIcon className="text-white w-4 h-4" />,
+                // },
+                // {
+                //   href: "https://www.instagram.com/",
+                //   icon: <InstagramIcon className="text-white w-4 h-4" />,
+                // },
+                // {
+                //   href: "https://www.twitter.com/",
+                //   icon: <Linkedin className="text-white w-4 h-4" />,
+                // },
+                { href: "https://www.linkedin.com/company/86808961/", icon: <Linkedin className="text-white w-4 h-4" /> },
               ].map((item, i) => (
                 <Link
                 key={i}

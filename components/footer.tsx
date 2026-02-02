@@ -39,10 +39,10 @@ export default function Footer() {
 
           <div className="flex items-center w-full md:w-auto gap-4">
             {[
-              { href: "https://www.instagram.com/", icon: <InstagramIcon className="text-foreground" /> },
-              { href: "", icon: <FacebookIcon className="text-foreground" /> },
+              // { href: "https://www.instagram.com/", icon: <InstagramIcon className="text-foreground" /> },
+              // { href: "", icon: <FacebookIcon className="text-foreground" /> },
               { href: "https://www.linkedin.com/company/86808961/", icon: <Linkedin className="text-foreground" /> },
-              { href: "https://twitter.com/", icon: <X className="text-foreground" /> },
+              // { href: "https://twitter.com/", icon: <X className="text-foreground" /> },
             ].map((item, i) => (
               <Link
                 key={i}

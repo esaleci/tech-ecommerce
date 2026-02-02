@@ -1,22 +1,28 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-// SMTP Configuration Constants
-const SMTP_HOST = process.env.SMTP_HOST || 'smtp.gmail.com';
-const SMTP_PORT = parseInt(process.env.SMTP_PORT || '587', 10);
+// SMTP Configuration (Hostinger: smtp.hostinger.com, port 465)
+const SMTP_HOST = process.env.SMTP_HOST || 'smtp.hostinger.com';
+const SMTP_PORT = parseInt(process.env.SMTP_PORT || '465', 10);
 const SENDER_EMAIL = process.env.SENDER_EMAIL || '';
 const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD || '';
-const SENDER_NAME = process.env.SENDER_NAME || 'GrowthOptics Contact Form';
+const SENDER_NAME = process.env.SENDER_NAME || 'GrowthOptics';
+const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL || SENDER_EMAIL;
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { firstName, lastName, email, phone, message } = body;
 
-    // Validate required fields
-    if (!firstName || !lastName || !email || !phone || !message) {
+    // Phone required in production (publish/deploy), optional in development (test)
+    const isProduction = process.env.NODE_ENV === 'production';
+    const requiredFields = isProduction
+      ? ['firstName', 'lastName', 'email', 'phone', 'message']
+      : ['firstName', 'lastName', 'email', 'message'];
+    const missing = requiredFields.filter((f) => !body[f]?.toString().trim());
+    if (missing.length > 0) {
       return NextResponse.json(
-        { error: 'All fields are required' },
+        { error: 'All required fields must be filled' },
         { status: 400 }
       );
     }
@@ -30,21 +36,30 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validate phone format (international format - 7-15 digits)
-    const phoneRegex = /^[\d\s\-\+\(\)]+$/;
-    if (!phoneRegex.test(phone)) {
-      return NextResponse.json(
-        { error: 'Invalid phone format' },
-        { status: 400 }
-      );
+    // Validate phone when provided (required format in production, optional in dev)
+    if (phone && phone.toString().trim() !== '') {
+      const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+      if (!phoneRegex.test(phone)) {
+        return NextResponse.json(
+          { error: 'Invalid phone format' },
+          { status: 400 }
+        );
+      }
+      const digitsOnly = phone.replace(/\D/g, '');
+      if (digitsOnly.length < 7 || digitsOnly.length > 15) {
+        return NextResponse.json(
+          { error: 'Phone number must contain between 7 and 15 digits' },
+          { status: 400 }
+        );
+      }
     }
-    
-    // Count actual digits (international standard: 7-15 digits)
-    const digitsOnly = phone.replace(/\D/g, '');
-    if (digitsOnly.length < 7 || digitsOnly.length > 15) {
+
+    // Ensure SMTP is configured
+    if (!SENDER_EMAIL || !EMAIL_PASSWORD) {
+      console.error('Missing SENDER_EMAIL or EMAIL_PASSWORD in .env');
       return NextResponse.json(
-        { error: 'Phone number must contain between 7 and 15 digits' },
-        { status: 400 }
+        { error: 'Email service is not configured. Please contact the administrator.' },
+        { status: 503 }
       );
     }
 
@@ -59,10 +74,11 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // Email content
+    // Email content (phone may be empty when optional in dev)
+    const phoneDisplay = phone && String(phone).trim() ? String(phone).trim() : 'Not provided';
     const mailOptions = {
       from: `"${SENDER_NAME}" <${SENDER_EMAIL}>`,
-      to: SENDER_EMAIL, // Send to the sender email (or configure a recipient)
+      to: RECIPIENT_EMAIL,
       replyTo: email,
       subject: `New Contact Form Submission from ${firstName} ${lastName}`,
       html: `
@@ -73,7 +89,7 @@ export async function POST(request: NextRequest) {
           <div style="background-color: #f5f7ff; padding: 20px; border-radius: 8px; margin-top: 20px;">
             <p><strong>Name:</strong> ${firstName} ${lastName}</p>
             <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-            <p><strong>Phone:</strong> <a href="tel:${phone}">${phone}</a></p>
+            <p><strong>Phone:</strong> ${phoneDisplay === 'Not provided' ? 'Not provided' : `<a href="tel:${phoneDisplay}">${phoneDisplay}</a>`}</p>
             <p><strong>Message:</strong></p>
             <p style="background-color: white; padding: 15px; border-radius: 5px; margin-top: 10px;">
               ${message.replace(/\n/g, '<br>')}
@@ -89,7 +105,7 @@ export async function POST(request: NextRequest) {
         
         Name: ${firstName} ${lastName}
         Email: ${email}
-        Phone: ${phone}
+        Phone: ${phoneDisplay}
         
         Message:
         ${message}
