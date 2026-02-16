@@ -52,7 +52,19 @@
    Base
 ========================= */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
+}
+
+/* Lenis classes (scrollbar style stays native/default) */
+html.lenis,
+html.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -67,6 +79,15 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   overflow-x: hidden;
+  /* Prevent blinking text caret outside form controls */
+  caret-color: transparent;
+}
+
+/* Keep caret visible where typing is expected */
+input,
+textarea,
+[contenteditable="true"] {
+  caret-color: auto;
 }
 
 /* =========================

@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Footer from "@/components/footer";
 import Navbar from "@/components/Navbar";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -57,6 +58,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${outfit.variable} antialiased`}
       >
+          <SmoothScroll />
           <Navbar />
           <main className="relative overflow-hidden 2xl:overflow-visible w-full ">
             <div className="relative px-4 xl:px-6 xl:max-w-6xl  2xl:max-w-7xl mx-auto ">

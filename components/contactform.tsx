@@ -303,13 +303,13 @@ export default function ContactSection() {
               <MailIcon className="text-secondary w-5 h-5" />
                connect@growthoptics.in
             </a>
-            <a
+            {/* <a
               href="tel:+919960414939"
               className="text-foreground hover:underline flex flex-row items-center justify-start gap-2 w-full"
             >
               <PhoneCallIcon className="text-secondary w-5 h-5" />
               +91 9960414939
-            </a>
+            </a> */}
 
             <div className="flex justify-start gap-4">
               {[
@@ -326,6 +326,7 @@ export default function ContactSection() {
                 //   icon: <Linkedin className="text-white w-4 h-4" />,
                 // },
                 { href: "https://www.linkedin.com/company/86808961/", icon: <Linkedin className="text-white w-4 h-4" /> },
+                { href:  "mailto:hello@example.com", icon: <MailIcon className="text-white w-4 h-4" /> },
               ].map((item, i) => (
                 <Link
                 key={i}

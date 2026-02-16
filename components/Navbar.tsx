@@ -23,7 +23,9 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
     }
-    window.addEventListener("scroll", handleScroll)
+    // Sync immediately on first paint (refresh while already scrolled)
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 

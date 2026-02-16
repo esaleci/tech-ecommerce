@@ -71,10 +71,10 @@ export default function Footer() {
               <Mail className="w-4 h-4" />
               <span className="text-sm font-normal leading-5">info@growthoptics.com</span>
             </a>
-            <a href="tel:+919960414939"  className="text-background/80 max-w-content hover:text-secondary gentle-animation text-sm font-medium inline-flex items-center gap-2">
+            {/* <a href="tel:+919960414939"  className="text-background/80 max-w-content hover:text-secondary gentle-animation text-sm font-medium inline-flex items-center gap-2">
               <Phone className="w-4 h-4" />
               <span className="text-sm font-normal leading-5">+91 9960414939</span>
-            </a>
+            </a> */}
 
            
 

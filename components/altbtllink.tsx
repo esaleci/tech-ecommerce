@@ -1,3 +1,5 @@
+'use client'
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,7 +8,13 @@ export default function AltBTLLink() {
     <section className="relative  overflow-hidden py-8 md:py-10 lg:py-16 xl:py-24">
      
 
-      <div className="relative  grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+     <motion.div
+    initial={{ opacity: 0, x: -50 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    id="altbtllink"     
+   className="relative  grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
         {/* cards */}
         <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* card 1 */}
@@ -83,7 +91,7 @@ export default function AltBTLLink() {
             View all services
           </Link>
         </div>
-      </div>
+      </motion.div>  
     </section>
   );
 }
