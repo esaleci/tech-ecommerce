@@ -232,7 +232,8 @@ export default function ContactSection() {
                     <FormItem>
                       <FormLabel>Phone{!isProduction ? ' (optional)' : ''}</FormLabel>
                       <FormControl>
-                        <Input type="tel" placeholder="+91 9960414939 or +1 (555) 123-4567" {...field} />
+                        <Input type="tel"  {...field} />
+                        {/* placeholder="+91 9960414939 or +1 (555) 123-4567" */}
                       </FormControl>
                       <FormMessage />
                     </FormItem>
